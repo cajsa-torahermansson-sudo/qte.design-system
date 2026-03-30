@@ -1,0 +1,102 @@
+/* QTE Form Elements
+ * Usage: <input class="qte-input" />, <textarea class="qte-textarea"></textarea>
+ *        <label class="qte-checkbox"><input type="checkbox" /><span>Label</span></label>
+ */
+
+/* ─── Text Input ─── */
+.qte-input,
+.qte-textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 18px;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-heading);
+  background-color: var(--color-bg-surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-default);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.qte-input::placeholder,
+.qte-textarea::placeholder {
+  color: var(--color-text-body);
+}
+
+.qte-input:hover:not(:focus):not(:disabled),
+.qte-textarea:hover:not(:focus):not(:disabled) {
+  border-color: var(--color-gray-300);
+}
+
+.qte-input:focus,
+.qte-textarea:focus {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 3px var(--color-accent-primary);
+}
+
+.qte-input:disabled,
+.qte-textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--color-bg-secondary);
+}
+
+/* ─── Textarea ─── */
+.qte-textarea {
+  min-height: 153px;
+  resize: vertical;
+}
+
+/* ─── Checkbox ─── */
+.qte-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-heading);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.qte-checkbox input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface);
+  cursor: pointer;
+  transition: var(--transition-default);
+  flex-shrink: 0;
+}
+
+.qte-checkbox input[type="checkbox"]:checked {
+  background-color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.qte-checkbox input[type="checkbox"]:focus-visible {
+  outline: 3px solid rgba(174, 167, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.qte-checkbox input[type="checkbox"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qte-checkbox:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

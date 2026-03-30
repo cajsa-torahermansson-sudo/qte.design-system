@@ -1,0 +1,100 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Contact List" activePage="Contact List">
+  <style is:global>
+    @import '../../../../styles/contact-list.css';
+    @import '../../../../styles/button.css';
+  </style>
+
+  <h1>Contact List</h1>
+  <p>Horizontal list item for team members with image, name, role, description, and CTA button. Separated by top/bottom borders. Collapses to stacked layout on mobile.</p>
+
+  <h2>Default</h2>
+  <Preview fullWidth={true} code={`<div class="qte-contact-list-item">
+  <div class="qte-contact-list-item__image"></div>
+  <div class="qte-contact-list-item__content">
+    <h3 class="qte-contact-list-item__name">Anna Svensson</h3>
+    <p class="qte-contact-list-item__role">UX Designer</p>
+    <p class="qte-contact-list-item__desc">Specialiserad på användarcentrerad design och research med fokus på tillgänglighet.</p>
+  </div>
+  <div class="qte-contact-list-item__cta">
+    <a href="#" class="qte-btn qte-btn--outline">Boka möte</a>
+  </div>
+</div>`} />
+
+  <h2>Multiple Items</h2>
+  <Preview fullWidth={true} code={`<div>
+  <div class="qte-contact-list-item">
+    <div class="qte-contact-list-item__image"></div>
+    <div class="qte-contact-list-item__content">
+      <h3 class="qte-contact-list-item__name">Erik Lindqvist</h3>
+      <p class="qte-contact-list-item__role">Frontend Developer</p>
+      <p class="qte-contact-list-item__desc">Bygger snabba och tillgängliga webbapplikationer med moderna ramverk.</p>
+    </div>
+    <div class="qte-contact-list-item__cta">
+      <a href="#" class="qte-btn qte-btn--outline">Boka möte</a>
+    </div>
+  </div>
+  <div class="qte-contact-list-item">
+    <div class="qte-contact-list-item__image"></div>
+    <div class="qte-contact-list-item__content">
+      <h3 class="qte-contact-list-item__name">Sara Johansson</h3>
+      <p class="qte-contact-list-item__role">Projektledare</p>
+      <p class="qte-contact-list-item__desc">Leder projekt med agila metoder och tydlig kommunikation.</p>
+    </div>
+    <div class="qte-contact-list-item__cta">
+      <a href="#" class="qte-btn qte-btn--outline">Boka möte</a>
+    </div>
+  </div>
+</div>`} />
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- Import -->
+@import '@qte/design-system/styles/contact-list.css';
+@import '@qte/design-system/styles/button.css';
+
+<!-- Contact List Item -->
+<div class="qte-contact-list-item">
+  <img class="qte-contact-list-item__image" src="..." alt="..." />
+  <div class="qte-contact-list-item__content">
+    <h3 class="qte-contact-list-item__name">Name</h3>
+    <p class="qte-contact-list-item__role">Role</p>
+    <p class="qte-contact-list-item__desc">Description</p>
+  </div>
+  <div class="qte-contact-list-item__cta">
+    <a href="#" class="qte-btn qte-btn--outline">Boka möte</a>
+  </div>
+</div>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-contact-list-item</code></td><td>Flex row with border separators</td></tr>
+      <tr><td><code>.qte-contact-list-item__image</code></td><td>206px square with gradient placeholder</td></tr>
+      <tr><td><code>.qte-contact-list-item__content</code></td><td>Flex-1 content area</td></tr>
+      <tr><td><code>.qte-contact-list-item__name</code></td><td>Bold name, turns purple on item hover</td></tr>
+      <tr><td><code>.qte-contact-list-item__role</code></td><td>Purple accent role text</td></tr>
+      <tr><td><code>.qte-contact-list-item__desc</code></td><td>Body-color description (max-width 450px)</td></tr>
+      <tr><td><code>.qte-contact-list-item__cta</code></td><td>Right-aligned CTA button area</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Anatomy</h2>
+  <table class="props-table">
+    <thead><tr><th>Property</th><th>Value</th><th>Token</th></tr></thead>
+    <tbody>
+      <tr><td>Gap</td><td>24px</td><td><code>--spacing-lg</code></td></tr>
+      <tr><td>Padding</td><td>32px 0</td><td><code>--spacing-xl</code></td></tr>
+      <tr><td>Border</td><td>1px solid #D0C9DD</td><td>—</td></tr>
+      <tr><td>Image size</td><td>206px (desktop), 74px (mobile)</td><td>—</td></tr>
+      <tr><td>Image radius</td><td>6px</td><td><code>--radius-md</code></td></tr>
+    </tbody>
+  </table>
+</DocsLayout>

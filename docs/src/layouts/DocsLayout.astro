@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  activeSection?: string;
+  activePage?: string;
+}
+
+const { title, activeSection, activePage } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const nav = [
+  {
+    section: 'Getting Started',
+    links: [
+      { label: 'Introduction', href: `${base}` },
+      { label: 'Installation', href: `${base}foundations/installation/` },
+    ]
+  },
+  {
+    section: 'Foundations',
+    links: [
+      { label: 'Colors', href: `${base}foundations/colors/` },
+      { label: 'Typography', href: `${base}foundations/typography/` },
+      { label: 'Spacing', href: `${base}foundations/spacing/` },
+      { label: 'Border Radius', href: `${base}foundations/radius/` },
+      { label: 'Elevation', href: `${base}foundations/elevation/` },
+    ]
+  },
+  {
+    section: 'Guidelines',
+    links: [
+      { label: 'Accessibility', href: `${base}guidelines/accessibility/` },
+      { label: 'States', href: `${base}guidelines/states/` },
+    ]
+  },
+  {
+    section: 'Components',
+    links: [
+      { label: 'Button', href: `${base}components/button/` },
+      { label: 'Card', href: `${base}components/card/` },
+      { label: 'Input', href: `${base}components/input/` },
+      { label: 'Navigation', href: `${base}components/navigation/` },
+      { label: 'Ticker', href: `${base}components/ticker/` },
+      { label: 'Contact List', href: `${base}components/contact-list/` },
+      { label: 'Review Badge', href: `${base}components/review-badge/` },
+      { label: 'Footer', href: `${base}components/footer/` },
+    ]
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} — QTE Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="docs-layout">
+    <aside class="docs-sidebar">
+      <a href={base} class="docs-sidebar__logo">QTE Design System</a>
+      {nav.map(group => (
+        <div class="docs-sidebar__section">
+          <div class="docs-sidebar__section-title">{group.section}</div>
+          {group.links.map(link => (
+            <a
+              href={link.href}
+              class={`docs-sidebar__link ${activePage === link.label ? 'docs-sidebar__link--active' : ''}`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      ))}
+    </aside>
+    <main class="docs-main">
+      <slot />
+    </main>
+  </div>
+
+  <script is:inline>
+    // Copy button functionality
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.code-block__copy');
+      if (!btn) return;
+      const code = btn.closest('.code-block').querySelector('code');
+      navigator.clipboard.writeText(code.textContent).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    });
+  </script>
+</body>
+</html>

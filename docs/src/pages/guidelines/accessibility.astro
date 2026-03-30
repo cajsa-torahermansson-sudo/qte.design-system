@@ -1,0 +1,72 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Accessibility" activePage="Accessibility">
+  <h1>Accessibility</h1>
+  <p>All QTE design system components are built with WCAG 2.1 AA compliance in mind. This page summarizes the key requirements and how our tokens support them.</p>
+
+  <h2>Contrast Ratios</h2>
+  <p>Every semantic color pairing has been tested against WCAG AA requirements (4.5:1 for normal text, 3:1 for large text).</p>
+
+  <table class="props-table">
+    <thead><tr><th>Pairing</th><th>Ratio</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Heading on light bg</td><td>15.73:1</td><td>Pass</td></tr>
+      <tr><td>Body on light bg</td><td>6.61:1</td><td>Pass</td></tr>
+      <tr><td>Heading on dark bg</td><td>18.25:1</td><td>Pass</td></tr>
+      <tr><td>Body on dark bg</td><td>11.76:1</td><td>Pass</td></tr>
+      <tr><td>Accent on light bg</td><td>7.82:1</td><td>Pass</td></tr>
+      <tr><td>Accent on dark bg</td><td>8.70:1</td><td>Pass</td></tr>
+      <tr><td>Link hover on light</td><td>4.79:1</td><td>Pass</td></tr>
+      <tr><td>Button text on primary</td><td>8.25:1</td><td>Pass</td></tr>
+      <tr><td>Button text on dark</td><td>14.64:1</td><td>Pass</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Keyboard Navigation</h2>
+  <ul>
+    <li>All interactive elements are reachable via <strong>Tab</strong> / <strong>Shift+Tab</strong></li>
+    <li>Buttons activate with <strong>Enter</strong> and <strong>Space</strong></li>
+    <li>Checkboxes toggle with <strong>Space</strong></li>
+    <li><strong>Escape</strong> closes modals and mobile menus</li>
+    <li>Focus ring: <code>3px solid rgba(174, 167, 255, 0.8)</code> via <code>:focus-visible</code></li>
+  </ul>
+
+  <h2>Focus Styles</h2>
+  <p>All components use <code>:focus-visible</code> to show focus rings only on keyboard navigation, not on mouse clicks.</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`.qte-btn:focus-visible {
+  outline: 3px solid rgba(174, 167, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.qte-input:focus {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 3px var(--color-accent-primary);
+}`}</code>
+  </div>
+
+  <h2>Screen Readers</h2>
+  <ul>
+    <li>Use semantic HTML: <code>&lt;button&gt;</code> for actions, <code>&lt;a&gt;</code> for links</li>
+    <li>All images need <code>alt</code> text (or <code>alt=""</code> if decorative)</li>
+    <li>Form inputs must have associated <code>&lt;label&gt;</code> elements</li>
+    <li>Use ARIA landmarks: <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code></li>
+    <li>Never rely on color alone to convey meaning</li>
+  </ul>
+
+  <h2>Checklist</h2>
+  <p>Use this before shipping any page:</p>
+  <ul>
+    <li>All text meets 4.5:1 contrast (use semantic tokens)</li>
+    <li>All interactive elements are keyboard accessible</li>
+    <li>Focus indicators are visible</li>
+    <li>Images have alt text</li>
+    <li>Forms have labels</li>
+    <li>Heading hierarchy is logical (H1 → H2 → H3)</li>
+    <li>Touch targets are minimum 44×44px</li>
+    <li>Page works at 200% zoom</li>
+  </ul>
+</DocsLayout>

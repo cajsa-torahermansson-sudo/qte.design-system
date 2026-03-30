@@ -1,0 +1,150 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Ticker" activePage="Ticker">
+  <style is:global>
+    @import '../../../../styles/ticker.css';
+  </style>
+
+  <h1>Ticker</h1>
+  <p>Horizontally scrolling marquee for text or image cards. Pauses on hover. Three color variants for text tickers plus an image ticker for case studies.</p>
+
+  <h2>Text Ticker</h2>
+
+  <h3>Dark</h3>
+  <p>Lavender text on dark background. Default for hero sections.</p>
+  <Preview dark={true} fullWidth={true} code={`<div class="qte-ticker qte-ticker--dark">
+  <div class="qte-ticker__track">
+    <span class="qte-ticker__item">Webbutveckling</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">UX Design</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Strategi</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">E-handel</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Webbutveckling</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">UX Design</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Strategi</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">E-handel</span>
+  </div>
+</div>`} />
+
+  <h3>Light</h3>
+  <p>Purple text on light background.</p>
+  <Preview fullWidth={true} code={`<div class="qte-ticker qte-ticker--light">
+  <div class="qte-ticker__track">
+    <span class="qte-ticker__item">Design System</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Komponentbibliotek</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Tillgänglighet</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Design System</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Komponentbibliotek</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Tillgänglighet</span>
+  </div>
+</div>`} />
+
+  <h3>Accent</h3>
+  <p>White text on accent-purple background.</p>
+  <Preview dark={true} fullWidth={true} code={`<div class="qte-ticker qte-ticker--accent">
+  <div class="qte-ticker__track">
+    <span class="qte-ticker__item">Innovation</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Kvalitet</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Resultat</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Innovation</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Kvalitet</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Resultat</span>
+  </div>
+</div>`} />
+
+  <h2>Image Ticker</h2>
+  <p>Scrolling cards with images, overlay gradient, title, and badges. Used for case study showcases.</p>
+  <Preview dark={true} fullWidth={true} code={`<div class="qte-ticker qte-ticker--images">
+  <div class="qte-ticker__track">
+    <div class="qte-ticker__card">
+      <img src="https://placehold.co/307x307/241143/AEA7FF?text=Projekt+1" alt="Project" />
+      <div class="qte-ticker__card-overlay"></div>
+      <div class="qte-ticker__card-info">
+        <div class="qte-ticker__card-badges">
+          <span class="qte-ticker__badge">UX</span>
+          <span class="qte-ticker__badge">Webb</span>
+        </div>
+        <h4 class="qte-ticker__card-title">Hemnet</h4>
+      </div>
+    </div>
+    <div class="qte-ticker__card">
+      <img src="https://placehold.co/307x307/2B116A/AEA7FF?text=Projekt+2" alt="Project" />
+      <div class="qte-ticker__card-overlay"></div>
+      <div class="qte-ticker__card-info">
+        <div class="qte-ticker__card-badges">
+          <span class="qte-ticker__badge">E-handel</span>
+        </div>
+        <h4 class="qte-ticker__card-title">Klarna</h4>
+      </div>
+    </div>
+  </div>
+</div>`} />
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- Import -->
+@import '@qte/design-system/styles/ticker.css';
+
+<!-- Text Ticker — duplicate items for seamless loop -->
+<div class="qte-ticker qte-ticker--dark">
+  <div class="qte-ticker__track">
+    <span class="qte-ticker__item">Item 1</span>
+    <span class="qte-ticker__separator">&bull;</span>
+    <span class="qte-ticker__item">Item 2</span>
+    <!-- ... repeat items for seamless scroll ... -->
+  </div>
+</div>
+
+<!-- Image Ticker -->
+<div class="qte-ticker qte-ticker--images">
+  <div class="qte-ticker__track">
+    <div class="qte-ticker__card">
+      <img src="..." alt="..." />
+      <div class="qte-ticker__card-overlay"></div>
+      <div class="qte-ticker__card-info">
+        <div class="qte-ticker__card-badges">
+          <span class="qte-ticker__badge">Tag</span>
+        </div>
+        <h4 class="qte-ticker__card-title">Title</h4>
+      </div>
+    </div>
+  </div>
+</div>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-ticker</code></td><td>Base ticker container (overflow hidden, flex, 64px height)</td></tr>
+      <tr><td><code>.qte-ticker--dark</code></td><td>Dark background, lavender text</td></tr>
+      <tr><td><code>.qte-ticker--light</code></td><td>Light background, purple text</td></tr>
+      <tr><td><code>.qte-ticker--accent</code></td><td>Purple background, white text</td></tr>
+      <tr><td><code>.qte-ticker--images</code></td><td>Image card ticker, auto height</td></tr>
+      <tr><td><code>.qte-ticker__track</code></td><td>Scrolling track (30s linear infinite animation)</td></tr>
+      <tr><td><code>.qte-ticker__item</code></td><td>Text ticker item</td></tr>
+      <tr><td><code>.qte-ticker__separator</code></td><td>Dot separator between items</td></tr>
+      <tr><td><code>.qte-ticker__card</code></td><td>Image card (307px square, rounded)</td></tr>
+    </tbody>
+  </table>
+</DocsLayout>

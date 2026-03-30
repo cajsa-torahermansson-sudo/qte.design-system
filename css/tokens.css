@@ -1,0 +1,121 @@
+/* QTE Design System — CSS Custom Properties
+ * Auto-generated from design tokens. Do not edit directly.
+ * Source: tokens/*.json
+ */
+
+:root {
+  /* ─── Primitive Colors ─── */
+  --color-purple-50: #E2E1FF;
+  --color-purple-100: #AEA7FF;
+  --color-purple-200: #9A83F7;
+  --color-purple-300: #896CFC;
+  --color-purple-400: #7A59FC;
+  --color-purple-500: #7054E2;
+  --color-purple-600: #5519D5;
+  --color-purple-700: #2B116A;
+  --color-purple-800: #241143;
+  --color-purple-900: #170E23;
+
+  --color-gray-50: #FDFCFC;
+  --color-gray-100: #FAF5F5;
+  --color-gray-200: #F3E8E8;
+  --color-gray-300: #CFCCD1;
+  --color-gray-400: #5F5273;
+  --color-gray-500: #2D203E;
+  --color-gray-600: #1C1524;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* ─── Semantic Colors (Light Mode) ─── */
+  --color-bg-primary: var(--color-gray-100);
+  --color-bg-secondary: var(--color-gray-200);
+  --color-bg-surface: var(--color-white);
+  --color-bg-dark: var(--color-purple-900);
+  --color-bg-cream: var(--color-purple-50);
+
+  --color-text-heading: var(--color-purple-800);
+  --color-text-body: var(--color-gray-400);
+  --color-text-on-dark: var(--color-gray-50);
+  --color-text-link: var(--color-gray-400);
+  --color-text-link-hover: var(--color-purple-500);
+
+  --color-border-default: var(--color-gray-500);
+  --color-border-hover: var(--color-white);
+
+  --color-accent-primary: var(--color-purple-600);
+  --color-accent-hover: var(--color-purple-400);
+  --color-accent-light: var(--color-purple-100);
+
+  /* ─── Spacing ─── */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 50px;
+  --spacing-4xl: 70px;
+  --spacing-5xl: 100px;
+
+  /* ─── Border Radius ─── */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-full: 100px;
+
+  /* ─── Typography ─── */
+  --font-family-sans: 'Source Sans 3', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --font-size-mini: 12px;
+  --font-size-xs: 14px;
+  --font-size-sm: 16px;
+  --font-size-base: 18px;
+  --font-size-lg: 22px;
+  --font-size-h6: 20px;
+  --font-size-h5: 26px;
+  --font-size-h4: 30px;
+  --font-size-h3: 40px;
+  --font-size-h2: 66px;
+  --font-size-h1: 100px;
+
+  --line-height-tight: 1.17;
+  --line-height-snug: 1.27;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.65;
+
+  /* ─── Shadows ─── */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 17px 0 rgba(151, 71, 255, 0.13);
+  --shadow-lg: 0 8px 24px -4px rgba(151, 71, 255, 0.08);
+  --shadow-xl: 0 20px 40px -8px rgba(151, 71, 255, 0.12);
+
+  /* ─── Transitions ─── */
+  --transition-default: all 0.2s ease-in-out;
+}
+
+/* ─── Dark Mode ─── */
+[data-theme="dark"],
+.dark {
+  --color-bg-primary: var(--color-purple-900);
+  --color-bg-secondary: var(--color-gray-600);
+  --color-bg-surface: var(--color-purple-900);
+  --color-bg-dark: var(--color-black);
+  --color-bg-cream: var(--color-purple-800);
+
+  --color-text-heading: var(--color-gray-50);
+  --color-text-body: var(--color-gray-300);
+  --color-text-on-dark: var(--color-gray-50);
+  --color-text-link: var(--color-gray-300);
+  --color-text-link-hover: var(--color-purple-100);
+
+  --color-border-default: var(--color-gray-400);
+  --color-border-hover: var(--color-gray-300);
+
+  --color-accent-primary: var(--color-purple-400);
+  --color-accent-hover: var(--color-purple-200);
+}

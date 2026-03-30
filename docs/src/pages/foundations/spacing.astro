@@ -1,0 +1,51 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Spacing" activePage="Spacing">
+  <h1>Spacing</h1>
+  <p>A 9-step spacing scale from 4px to 100px. Used for padding, margins, gaps, and section spacing.</p>
+
+  <h2>Scale</h2>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      {[
+        { token: '--spacing-xs', value: '4px', usage: 'Inline gaps, icon-to-text' },
+        { token: '--spacing-sm', value: '8px', usage: 'Tight padding, list item gaps' },
+        { token: '--spacing-md', value: '16px', usage: 'Default component padding' },
+        { token: '--spacing-lg', value: '24px', usage: 'Card padding, content gaps' },
+        { token: '--spacing-xl', value: '32px', usage: 'Large padding, group separation' },
+        { token: '--spacing-2xl', value: '40px', usage: 'Section inner padding' },
+        { token: '--spacing-3xl', value: '50px', usage: 'Mobile section spacing' },
+        { token: '--spacing-4xl', value: '70px', usage: 'Desktop container padding' },
+        { token: '--spacing-5xl', value: '100px', usage: 'Desktop section spacing' },
+      ].map(s => (
+        <tr>
+          <td><code>{s.token}</code></td>
+          <td>{s.value}</td>
+          <td>{s.usage}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`.card {
+  padding: var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-3xl) var(--spacing-md);  /* mobile */
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding: var(--spacing-5xl) var(--spacing-4xl);  /* desktop */
+  }
+}`}</code>
+  </div>
+</DocsLayout>

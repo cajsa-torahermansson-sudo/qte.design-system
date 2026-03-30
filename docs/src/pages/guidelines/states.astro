@@ -1,0 +1,83 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="States" activePage="States">
+  <h1>Interaction States</h1>
+  <p>Every interactive element follows a consistent state model. States communicate status and provide visual feedback.</p>
+
+  <h2>State Definitions</h2>
+
+  <h3>Default</h3>
+  <p>Resting state. No user interaction. Base colors, full opacity.</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`opacity: 1;
+cursor: pointer; /* interactive elements */
+background-color: var(--color-accent-primary);`}</code>
+  </div>
+
+  <h3>Hover</h3>
+  <p>Cursor over element. Signals interactivity.</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`background-color: var(--color-accent-hover);
+border-color: rgba(255, 255, 255, 0.4); /* secondary buttons */
+cursor: pointer;
+transition: all 0.2s ease-in-out;`}</code>
+  </div>
+
+  <h3>Focused</h3>
+  <p>Keyboard focus. Critical for accessibility — never remove focus styles.</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`outline: 3px solid rgba(174, 167, 255, 0.8);
+outline-offset: 2px;
+/* Focus ring appears instantly — no transition */`}</code>
+  </div>
+
+  <h3>Pressed</h3>
+  <p>Active click/tap. Brief visual confirmation.</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`background-color: #3F11B3; /* darker than default */
+transform: scale(0.98);
+transition: transform 0.1s ease-out;`}</code>
+  </div>
+
+  <h3>Disabled</h3>
+  <p>Not interactive. Always explain why something is disabled.</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`opacity: 0.35;
+pointer-events: none;
+cursor: not-allowed;
+/* No transitions — state change is immediate */`}</code>
+  </div>
+
+  <h2>Transition Rules</h2>
+  <table class="props-table">
+    <thead><tr><th>Rule</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Default easing</td><td><code>ease-in-out</code></td></tr>
+      <tr><td>Default duration</td><td><code>200ms</code></td></tr>
+      <tr><td>Properties</td><td>background-color, color, border-color, opacity, transform, box-shadow</td></tr>
+      <tr><td>Hover delay</td><td>None — respond immediately</td></tr>
+      <tr><td>Focus</td><td>Instant — no animation for accessibility</td></tr>
+      <tr><td>Disabled</td><td>Instant — no transitions</td></tr>
+    </tbody>
+  </table>
+
+  <h2>State Coverage</h2>
+  <table class="props-table">
+    <thead><tr><th>Component</th><th>Default</th><th>Hover</th><th>Focus</th><th>Pressed</th><th>Disabled</th></tr></thead>
+    <tbody>
+      <tr><td>Button</td><td>Built</td><td>Built</td><td>Built</td><td>—</td><td>Built</td></tr>
+      <tr><td>Input</td><td>Built</td><td>—</td><td>Built</td><td>N/A</td><td>Built</td></tr>
+      <tr><td>Checkbox</td><td>Built</td><td>—</td><td>Built</td><td>N/A</td><td>—</td></tr>
+      <tr><td>Card (hover)</td><td>Built</td><td>Built</td><td>—</td><td>N/A</td><td>N/A</td></tr>
+      <tr><td>Link</td><td>Built</td><td>Built</td><td>Built</td><td>N/A</td><td>N/A</td></tr>
+      <tr><td>Nav link</td><td>Built</td><td>Built</td><td>—</td><td>N/A</td><td>N/A</td></tr>
+    </tbody>
+  </table>
+</DocsLayout>

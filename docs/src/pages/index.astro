@@ -1,0 +1,63 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Introduction" activePage="Introduction">
+  <h1>QTE Design System</h1>
+  <p>A headless, framework-agnostic design system built for <a href="https://qte.se">qte.se</a>. CSS custom properties and class-based component styles that work with any stack — React, Vue, Svelte, or plain HTML.</p>
+
+  <h2>Quick Start</h2>
+  <h3>Install via npm</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>npm install @qte/design-system</code>
+  </div>
+
+  <h3>Import tokens</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`/* In your global CSS */
+@import '@qte/design-system/tokens.css';
+
+/* Or import specific component styles */
+@import '@qte/design-system/styles/button.css';
+@import '@qte/design-system/styles/card.css';`}</code>
+  </div>
+
+  <h3>Use in HTML</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<button class="qte-btn qte-btn--primary">
+  Boka möte
+</button>`}</code>
+  </div>
+
+  <h2>What's Included</h2>
+
+  <h3>Design Tokens</h3>
+  <p>49 CSS custom properties covering colors (with Light/Dark modes), spacing, border radius, typography, and shadows. All synced from Figma.</p>
+
+  <h3>Component Styles</h3>
+  <p>8 component CSS files with class-based styling. No JavaScript runtime — just CSS that works everywhere.</p>
+
+  <h3>Accessibility</h3>
+  <p>All color pairings pass WCAG AA contrast requirements. Components include focus-visible styles, keyboard navigation support, and screen reader considerations.</p>
+
+  <h2>Architecture</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`@qte/design-system/
+├── tokens/          ← Source JSON (DTCG format)
+├── css/tokens.css   ← CSS custom properties
+├── styles/          ← Component CSS files
+│   ├── button.css
+│   ├── card.css
+│   ├── input.css
+│   ├── navigation.css
+│   ├── ticker.css
+│   ├── contact-list.css
+│   ├── review-badge.css
+│   └── footer.css
+└── docs/            ← This site`}</code>
+  </div>
+</DocsLayout>

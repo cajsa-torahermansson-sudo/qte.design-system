@@ -1,0 +1,118 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Card" activePage="Card">
+  <style is:global>
+    @import '../../../../styles/card.css';
+    @import '../../../../styles/button.css';
+  </style>
+
+  <h1>Card</h1>
+  <p>Flexible card system with six variants: case study, logo, USP, contact, hover-effect, and staff. All share the <code>.qte-card</code> base class.</p>
+
+  <h2>Variants</h2>
+
+  <h3>Case Study</h3>
+  <p>Dark card for showcasing project work. Includes image, title, and description.</p>
+  <Preview dark={true} code={`<div class="qte-card qte-card--case">
+  <img class="qte-card__image" src="https://placehold.co/600x375/241143/AEA7FF?text=Case+Study" alt="Case study" />
+  <div class="qte-card__content">
+    <h3 class="qte-card__title">Hemnet Redesign</h3>
+    <p class="qte-card__desc">A complete digital transformation of Sweden's leading property platform.</p>
+  </div>
+</div>`} />
+
+  <h3>Logo</h3>
+  <p>Square card for displaying client logos. Centered content with rounded corners.</p>
+  <Preview code={`<div class="qte-card qte-card--logo" style="width: 160px; height: 160px;">
+  <img src="https://placehold.co/120x40/5F5273/FFFFFF?text=Logo" alt="Client logo" />
+</div>`} />
+
+  <h3>USP / Feature</h3>
+  <p>Light card for features and selling points. Includes icon circle, title, and description.</p>
+  <Preview code={`<div class="qte-card qte-card--usp">
+  <div class="qte-card__icon"></div>
+  <h3 class="qte-card__title">Snabb leverans</h3>
+  <p class="qte-card__desc">Vi levererar projekt i tid med agila metoder och tydlig kommunikation.</p>
+</div>`} />
+
+  <h3>Contact</h3>
+  <p>Dark card for team member contact info. Centered layout with avatar, name, role, and links.</p>
+  <Preview dark={true} code={`<div class="qte-card qte-card--contact" style="width: 280px;">
+  <div class="qte-card__avatar"></div>
+  <h3 class="qte-card__title">Anna Svensson</h3>
+  <p class="qte-card__role">UX Designer</p>
+  <a href="mailto:anna@qte.se">anna@qte.se</a>
+</div>`} />
+
+  <h3>Hover Effect</h3>
+  <p>Gradient-border card that reveals on hover. Used for service links and CTAs.</p>
+  <Preview dark={true} code={`<div class="qte-card qte-card--hover-effect">
+  <div class="qte-card__inner">
+    <h3 style="color: #FDFCFC; margin: 0 0 8px; font-size: 22px;">Webbutveckling</h3>
+    <p style="color: #CFCCD1; margin: 0 0 12px; font-size: 16px;">Moderna webbapplikationer med fokus på prestanda.</p>
+    <span class="qte-card__arrow">&#8594;</span>
+  </div>
+</div>`} />
+
+  <h3>Staff</h3>
+  <p>Light card for team grid. Shows photo, name, role, and contact info.</p>
+  <Preview code={`<div class="qte-card qte-card--staff" style="width: 220px;">
+  <div class="qte-card__image"></div>
+  <h3 class="qte-card__title">Erik Lindqvist</h3>
+  <p class="qte-card__role">Frontend Developer</p>
+  <p class="qte-card__contact">erik@qte.se</p>
+</div>`} />
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- Import -->
+@import '@qte/design-system/styles/card.css';
+
+<!-- Case Study Card -->
+<div class="qte-card qte-card--case">
+  <img class="qte-card__image" src="..." alt="..." />
+  <div class="qte-card__content">
+    <h3 class="qte-card__title">Title</h3>
+    <p class="qte-card__desc">Description</p>
+  </div>
+</div>
+
+<!-- USP Card -->
+<div class="qte-card qte-card--usp">
+  <div class="qte-card__icon"></div>
+  <h3 class="qte-card__title">Feature</h3>
+  <p class="qte-card__desc">Description</p>
+</div>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-card</code></td><td>Base card styles (radius, overflow, transition)</td></tr>
+      <tr><td><code>.qte-card--case</code></td><td>Dark background, image + content layout</td></tr>
+      <tr><td><code>.qte-card--logo</code></td><td>Square, centered, rounded corners (radius-xl)</td></tr>
+      <tr><td><code>.qte-card--usp</code></td><td>Light background, icon circle + text</td></tr>
+      <tr><td><code>.qte-card--contact</code></td><td>Dark background, centered avatar + text</td></tr>
+      <tr><td><code>.qte-card--hover-effect</code></td><td>Gradient border on hover, arrow reveal</td></tr>
+      <tr><td><code>.qte-card--staff</code></td><td>Photo + name/role for team grids</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Anatomy</h2>
+  <table class="props-table">
+    <thead><tr><th>Property</th><th>Value</th><th>Token</th></tr></thead>
+    <tbody>
+      <tr><td>Base border radius</td><td>6px</td><td><code>--radius-md</code></td></tr>
+      <tr><td>Logo border radius</td><td>16px</td><td><code>--radius-xl</code></td></tr>
+      <tr><td>Content padding</td><td>24px</td><td><code>--spacing-lg</code></td></tr>
+      <tr><td>USP padding</td><td>40px</td><td><code>--spacing-2xl</code></td></tr>
+      <tr><td>Transition</td><td>all 0.2s ease-in-out</td><td><code>--transition-default</code></td></tr>
+      <tr><td>Hover-effect border</td><td>Gradient 192deg purple</td><td>Custom gradient</td></tr>
+    </tbody>
+  </table>
+</DocsLayout>

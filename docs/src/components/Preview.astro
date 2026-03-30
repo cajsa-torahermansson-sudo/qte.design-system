@@ -1,0 +1,59 @@
+---
+interface Props {
+  dark?: boolean;
+  code: string;
+  fullWidth?: boolean;
+}
+const { dark = false, code, fullWidth = false } = Astro.props;
+const id = `preview-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class="preview" id={id}>
+  <div class="preview__toolbar">
+    <span class="preview__toolbar-label">Preview</span>
+    <button
+      class={`preview__theme-toggle ${dark ? 'preview__theme-toggle--dark' : ''}`}
+      aria-label="Toggle dark/light mode"
+      title="Toggle dark/light mode"
+      type="button"
+    >
+      <span class="preview__toggle-icon preview__toggle-icon--sun">☀</span>
+      <span class="preview__toggle-icon preview__toggle-icon--moon">☾</span>
+    </button>
+  </div>
+  <div class={`preview__canvas ${dark ? 'preview__canvas--dark' : 'preview__canvas--light'} ${fullWidth ? 'preview__canvas--full' : ''}`} data-theme={dark ? 'dark' : 'light'}>
+    <Fragment set:html={code} />
+  </div>
+  <div class="preview__code">
+    <div class="code-block" style="margin: 0; border-radius: 0;">
+      <button class="code-block__copy" type="button">Copy</button>
+      <code>{code.trim()}</code>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ id }}>
+  (function() {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const toggle = el.querySelector('.preview__theme-toggle');
+    const canvas = el.querySelector('.preview__canvas');
+    if (!toggle || !canvas) return;
+
+    toggle.addEventListener('click', function() {
+      const isDark = canvas.classList.contains('preview__canvas--dark');
+      if (isDark) {
+        canvas.classList.remove('preview__canvas--dark');
+        canvas.classList.add('preview__canvas--light');
+        canvas.setAttribute('data-theme', 'light');
+        toggle.classList.remove('preview__theme-toggle--dark');
+      } else {
+        canvas.classList.remove('preview__canvas--light');
+        canvas.classList.add('preview__canvas--dark');
+        canvas.setAttribute('data-theme', 'dark');
+        toggle.classList.add('preview__theme-toggle--dark');
+      }
+    });
+  })();
+</script>

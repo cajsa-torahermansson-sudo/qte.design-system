@@ -1,0 +1,36 @@
+{
+  "font": {
+    "family": {
+      "sans": { "$type": "fontFamily", "$value": "Source Sans 3, sans-serif" }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": "400" },
+      "bold":    { "$type": "fontWeight", "$value": "700" }
+    },
+    "size": {
+      "mini":  { "$type": "dimension", "$value": "12px" },
+      "xs":    { "$type": "dimension", "$value": "14px" },
+      "sm":    { "$type": "dimension", "$value": "16px" },
+      "base":  { "$type": "dimension", "$value": "18px" },
+      "lg":    { "$type": "dimension", "$value": "22px" },
+      "h6":    { "$type": "dimension", "$value": "20px" },
+      "h5":    { "$type": "dimension", "$value": "26px" },
+      "h4":    { "$type": "dimension", "$value": "30px" },
+      "h3":    { "$type": "dimension", "$value": "40px" },
+      "h2":    { "$type": "dimension", "$value": "66px" },
+      "h1":    { "$type": "dimension", "$value": "100px" }
+    },
+    "line-height": {
+      "tight":  { "$type": "dimension", "$value": "1.17" },
+      "snug":   { "$type": "dimension", "$value": "1.27" },
+      "normal": { "$type": "dimension", "$value": "1.4" },
+      "relaxed": { "$type": "dimension", "$value": "1.65" }
+    }
+  },
+  "shadow": {
+    "sm": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "1px", "blur": "3px", "spread": "0px", "color": "rgba(0,0,0,0.05)" } },
+    "md": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "2px", "blur": "17px", "spread": "0px", "color": "rgba(151,71,255,0.13)" } },
+    "lg": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "8px", "blur": "24px", "spread": "-4px", "color": "rgba(151,71,255,0.08)" } },
+    "xl": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "20px", "blur": "40px", "spread": "-8px", "color": "rgba(151,71,255,0.12)" } }
+  }
+}

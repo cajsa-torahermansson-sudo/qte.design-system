@@ -1,0 +1,63 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Border Radius" activePage="Border Radius">
+  <h1>Border Radius</h1>
+  <p>Six radius tokens from sharp corners to fully rounded pills. Used across cards, buttons, inputs, and badges.</p>
+
+  <h2>Scale</h2>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      {[
+        { token: '--radius-none', value: '0px', usage: 'No rounding (resets)' },
+        { token: '--radius-sm', value: '2px', usage: 'Inputs, checkboxes' },
+        { token: '--radius-md', value: '6px', usage: 'Cards, case study images, ticker cards' },
+        { token: '--radius-lg', value: '10px', usage: 'USP cards, hover-effect inner' },
+        { token: '--radius-xl', value: '16px', usage: 'Logo cards' },
+        { token: '--radius-full', value: '100px', usage: 'Buttons, badges, pills' },
+      ].map(s => (
+        <tr>
+          <td><code>{s.token}</code></td>
+          <td>{s.value}</td>
+          <td>{s.usage}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Visual Demo</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 24px; margin-top: 16px;">
+    {[
+      { label: 'none', value: '0px' },
+      { label: 'sm', value: '2px' },
+      { label: 'md', value: '6px' },
+      { label: 'lg', value: '10px' },
+      { label: 'xl', value: '16px' },
+      { label: 'full', value: '100px' },
+    ].map(r => (
+      <div style="text-align: center;">
+        <div style={`width: 100%; aspect-ratio: 1; background-color: var(--color-accent-primary, #5519D5); border-radius: ${r.value};`}></div>
+        <div style="margin-top: 8px; font-weight: 700; font-size: 14px;">{r.label}</div>
+        <div style="font-size: 12px; color: var(--color-text-body, #5F5273);">{r.value}</div>
+      </div>
+    ))}
+  </div>
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`.card {
+  border-radius: var(--radius-md);
+}
+
+.button {
+  border-radius: var(--radius-full);
+}
+
+.input {
+  border-radius: var(--radius-sm);
+}`}</code>
+  </div>
+</DocsLayout>

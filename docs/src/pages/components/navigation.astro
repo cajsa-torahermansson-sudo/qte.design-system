@@ -1,0 +1,176 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Navigation" activePage="Navigation">
+  <style is:global>
+    @import '../../../../styles/navigation.css';
+    @import '../../../../styles/button.css';
+
+    /* Override fixed positioning for preview */
+    .preview__canvas .qte-nav {
+      position: relative;
+      width: 100%;
+    }
+    .preview__canvas .qte-nav__links {
+      display: flex !important;
+    }
+    .preview__canvas .qte-nav__hamburger {
+      display: none !important;
+    }
+    /* Mobile preview overrides */
+    .preview__canvas .qte-nav--mobile {
+      height: 60px;
+      padding: 0 16px;
+    }
+    .preview__canvas .qte-nav--mobile .qte-nav__links {
+      display: none !important;
+    }
+    .preview__canvas .qte-nav--mobile .qte-nav__hamburger {
+      display: flex !important;
+    }
+    .preview__canvas .qte-nav--mobile .qte-btn {
+      display: none;
+    }
+  </style>
+
+  <h1>Navigation</h1>
+  <p>Fixed top navigation bar with glassmorphism background. Includes logo, desktop links with underline hover, CTA button, hamburger menu for mobile, and mega menu dropdown.</p>
+
+  <h2>Desktop Nav</h2>
+  <Preview dark={true} fullWidth={true} code={`<nav class="qte-nav" style="position: relative; width: 100%; padding: 0 70px;">
+  <span style="color: #FDFCFC; font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">QTE</span>
+  <ul class="qte-nav__links" style="display: flex;">
+    <li><a href="#" class="qte-nav__link">Tjänster</a></li>
+    <li><a href="#" class="qte-nav__link qte-nav__link--active">Case</a></li>
+    <li><a href="#" class="qte-nav__link">Om oss</a></li>
+    <li><a href="#" class="qte-nav__link">Blogg</a></li>
+    <li><a href="#" class="qte-nav__link">Karriär</a></li>
+  </ul>
+  <a href="#" class="qte-btn qte-btn--primary" style="font-size: 14px; padding: 8px 20px;">Boka möte</a>
+</nav>`} />
+
+  <h2>Desktop Nav — Expanded (Mega Menu)</h2>
+  <Preview dark={true} fullWidth={true} code={`<div>
+  <nav class="qte-nav" style="position: relative; width: 100%; padding: 0 70px;">
+    <span style="color: #FDFCFC; font-weight: 700; font-size: 20px;">QTE</span>
+    <ul class="qte-nav__links" style="display: flex;">
+      <li><a href="#" class="qte-nav__link qte-nav__link--active">Tjänster</a></li>
+      <li><a href="#" class="qte-nav__link">Case</a></li>
+      <li><a href="#" class="qte-nav__link">Om oss</a></li>
+      <li><a href="#" class="qte-nav__link">Blogg</a></li>
+      <li><a href="#" class="qte-nav__link">Karriär</a></li>
+    </ul>
+    <a href="#" class="qte-btn qte-btn--primary" style="font-size: 14px; padding: 8px 20px;">Boka möte</a>
+  </nav>
+  <div style="background: rgba(0,0,0,0.85); backdrop-filter: blur(9px); padding: 32px 70px 40px; display: flex; gap: 60px;">
+    <div>
+      <div class="qte-nav__mega-col-title">Utveckling</div>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Webbutveckling</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Apputveckling</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">E-handel</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">API-integrationer</a>
+    </div>
+    <div>
+      <div class="qte-nav__mega-col-title">Design</div>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">UX/UI Design</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Prototyping</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Designsystem</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Varumärke</a>
+    </div>
+    <div>
+      <div class="qte-nav__mega-col-title">Strategi</div>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Digital strategi</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">SEO</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Analytics</a>
+      <a href="#" style="display: block; margin-top: 10px; color: #FDFCFC; font-size: 16px; text-decoration: none;">Rådgivning</a>
+    </div>
+  </div>
+</div>`} />
+
+  <h2>Mobile Nav — Collapsed</h2>
+  <Preview dark={true} code={`<nav class="qte-nav" style="position: relative; width: 375px; height: 60px; padding: 0 20px;">
+  <span style="color: #FDFCFC; font-weight: 700; font-size: 18px;">QTE</span>
+  <button class="qte-nav__hamburger" style="display: flex;" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>`} />
+
+  <h2>Mobile Nav — Expanded</h2>
+  <Preview dark={true} code={`<div style="width: 375px; background: #170E23; border-radius: 6px; overflow: hidden;">
+  <nav class="qte-nav" style="position: relative; width: 100%; height: 60px; padding: 0 20px;">
+    <span style="color: #FDFCFC; font-weight: 700; font-size: 18px;">QTE</span>
+    <button style="background: none; border: none; color: white; font-size: 24px; cursor: pointer;">✕</button>
+  </nav>
+  <div style="padding: 20px 20px 40px;">
+    <a href="#" class="qte-nav__mobile-link">Tjänster</a>
+    <div style="padding: 12px 0 8px 16px;">
+      <a href="#" style="display: block; font-size: 18px; color: #AEA7FF; padding: 4px 0;">Webbutveckling</a>
+      <a href="#" style="display: block; font-size: 18px; color: #AEA7FF; padding: 4px 0;">Apputveckling</a>
+      <a href="#" style="display: block; font-size: 18px; color: #AEA7FF; padding: 4px 0;">UX/UI Design</a>
+    </div>
+    <a href="#" class="qte-nav__mobile-link">Case</a>
+    <a href="#" class="qte-nav__mobile-link">Om oss</a>
+    <a href="#" class="qte-nav__mobile-link">Blogg</a>
+    <a href="#" class="qte-nav__mobile-link">Karriär</a>
+    <a href="#" class="qte-nav__mobile-link">Kontakt</a>
+    <div style="margin-top: 24px; text-align: center;">
+      <a href="#" class="qte-btn qte-btn--primary" style="font-size: 18px; padding: 14px 32px;">Boka möte</a>
+    </div>
+  </div>
+</div>`} />
+
+  <h2>Full Structure</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`@import '@qte/design-system/styles/navigation.css';
+@import '@qte/design-system/styles/button.css';
+
+<nav class="qte-nav" aria-label="Main navigation">
+  <a href="/"><img class="qte-nav__logo" src="/logo.svg" alt="QTE" /></a>
+
+  <ul class="qte-nav__links">
+    <li><a href="/services" class="qte-nav__link">Tjänster</a></li>
+    <li><a href="/cases" class="qte-nav__link qte-nav__link--active" aria-current="page">Case</a></li>
+    <li><a href="/about" class="qte-nav__link">Om oss</a></li>
+    <li><a href="/blog" class="qte-nav__link">Blogg</a></li>
+    <li><a href="/career" class="qte-nav__link">Karriär</a></li>
+  </ul>
+
+  <a href="/contact" class="qte-btn qte-btn--primary">Boka möte</a>
+
+  <button class="qte-nav__hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-nav</code></td><td>Fixed bar — glassmorphism bg, 70px height (60px mobile)</td></tr>
+      <tr><td><code>.qte-nav__logo</code></td><td>Logo image — 55px height (28px mobile)</td></tr>
+      <tr><td><code>.qte-nav__links</code></td><td>Desktop link list — hidden below 992px</td></tr>
+      <tr><td><code>.qte-nav__link</code></td><td>Nav link — underline on hover/active</td></tr>
+      <tr><td><code>.qte-nav__link--active</code></td><td>Active page indicator underline</td></tr>
+      <tr><td><code>.qte-nav__hamburger</code></td><td>Mobile menu toggle — 3 bars, visible below 992px</td></tr>
+      <tr><td><code>.qte-nav__mobile-menu</code></td><td>Full-screen overlay — slides in from right</td></tr>
+      <tr><td><code>.qte-nav__mobile-link</code></td><td>Mobile link — bold 32px</td></tr>
+      <tr><td><code>.qte-nav__mega-menu</code></td><td>Desktop dropdown — glassmorphism, multi-column</td></tr>
+      <tr><td><code>.qte-nav__mega-col-title</code></td><td>Column heading — uppercase, letter-spaced, lavender</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Accessibility</h2>
+  <ul>
+    <li>Use <code>&lt;nav aria-label="Main navigation"&gt;</code></li>
+    <li>Active link: add <code>aria-current="page"</code></li>
+    <li>Hamburger: <code>aria-label="Open menu"</code> + <code>aria-expanded</code></li>
+    <li>Mobile menu: trap focus inside when open, release on Escape</li>
+    <li>Skip navigation link as first focusable element</li>
+  </ul>
+</DocsLayout>

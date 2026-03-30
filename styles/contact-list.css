@@ -1,0 +1,97 @@
+/* QTE Contact List Item
+ * Usage: <div class="qte-contact-list-item"> ... </div>
+ */
+
+.qte-contact-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-gray-300);
+  transition: var(--transition-default);
+}
+
+.qte-contact-list-item:last-child {
+  border-bottom: 1px solid var(--color-gray-300);
+}
+
+.qte-contact-list-item__image {
+  width: 206px;
+  height: 206px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(210deg, #F3E8E8 0%, #FFFFFF 50%, #F3E8E8 70%);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .qte-contact-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .qte-contact-list-item__image {
+    width: 74px;
+    height: 74px;
+  }
+}
+
+.qte-contact-list-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.qte-contact-list-item__name {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-heading);
+  margin: 0 0 var(--spacing-xs);
+  transition: color 0.2s ease;
+}
+
+.qte-contact-list-item:hover .qte-contact-list-item__name {
+  color: var(--color-accent-primary);
+}
+
+.qte-contact-list-item__role {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-primary);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.qte-contact-list-item__desc {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-body);
+  margin: 0;
+  max-width: 450px;
+  line-height: var(--line-height-relaxed);
+}
+
+.qte-contact-list-item__cta {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .qte-contact-list-item__cta {
+    margin-left: 0;
+  }
+}
+
+/* ─── Mobile 2-column grid ─── */
+.qte-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(50% - 6px), 1fr));
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .qte-contact-grid {
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    gap: var(--spacing-2xl);
+  }
+}

@@ -1,0 +1,12 @@
+---
+interface Props {
+  code: string;
+  lang?: string;
+}
+const { code, lang = 'html' } = Astro.props;
+---
+
+<div class="code-block">
+  <button class="code-block__copy">Copy</button>
+  <code>{code.trim()}</code>
+</div>

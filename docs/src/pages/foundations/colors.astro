@@ -1,0 +1,106 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Colors" activePage="Colors">
+  <h1>Colors</h1>
+  <p>A two-layer token system: primitives define the raw palette, semantic tokens map meaning. Semantic tokens switch automatically between Light and Dark modes.</p>
+
+  <h2>Primitives</h2>
+  <p>Raw color values. Hidden from component use — only referenced by semantic tokens.</p>
+
+  <h3>Purple</h3>
+  <div class="swatch-grid">
+    {[
+      { name: '50', value: '#E2E1FF', var: '--color-purple-50' },
+      { name: '100', value: '#AEA7FF', var: '--color-purple-100' },
+      { name: '200', value: '#9A83F7', var: '--color-purple-200' },
+      { name: '300', value: '#896CFC', var: '--color-purple-300' },
+      { name: '400', value: '#7A59FC', var: '--color-purple-400' },
+      { name: '500', value: '#7054E2', var: '--color-purple-500' },
+      { name: '600', value: '#5519D5', var: '--color-purple-600' },
+      { name: '700', value: '#2B116A', var: '--color-purple-700' },
+      { name: '800', value: '#241143', var: '--color-purple-800' },
+      { name: '900', value: '#170E23', var: '--color-purple-900' },
+    ].map(s => (
+      <div class="swatch">
+        <div class="swatch__color" style={`background-color: ${s.value}`}></div>
+        <span class="swatch__name">{s.name}</span>
+        <span class="swatch__value">{s.value}</span>
+      </div>
+    ))}
+  </div>
+
+  <h3>Gray</h3>
+  <div class="swatch-grid">
+    {[
+      { name: '50', value: '#FDFCFC' },
+      { name: '100', value: '#FAF5F5' },
+      { name: '200', value: '#F3E8E8' },
+      { name: '300', value: '#CFCCD1' },
+      { name: '400', value: '#5F5273' },
+      { name: '500', value: '#2D203E' },
+      { name: '600', value: '#1C1524' },
+    ].map(s => (
+      <div class="swatch">
+        <div class="swatch__color" style={`background-color: ${s.value}`}></div>
+        <span class="swatch__name">{s.name}</span>
+        <span class="swatch__value">{s.value}</span>
+      </div>
+    ))}
+  </div>
+
+  <h2>Semantic Tokens</h2>
+  <p>Use these in components. They alias to different primitives in Light vs Dark mode.</p>
+
+  <h3>Usage</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`.my-component {
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-heading);
+  border: 1px solid var(--color-border-default);
+}
+
+/* Automatically switches in dark mode */
+[data-theme="dark"] .my-component {
+  /* No overrides needed — tokens resolve differently */
+}`}</code>
+  </div>
+
+  <h3>Backgrounds</h3>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--color-bg-primary</code></td><td>#FAF5F5</td><td>#170E23</td><td>Page background</td></tr>
+      <tr><td><code>--color-bg-secondary</code></td><td>#F3E8E8</td><td>#1C1524</td><td>Section alt background</td></tr>
+      <tr><td><code>--color-bg-surface</code></td><td>#FFFFFF</td><td>#170E23</td><td>Cards, inputs</td></tr>
+      <tr><td><code>--color-bg-dark</code></td><td>#170E23</td><td>#000000</td><td>Dark sections</td></tr>
+      <tr><td><code>--color-bg-cream</code></td><td>#E2E1FF</td><td>#241143</td><td>Accent backgrounds</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Text</h3>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--color-text-heading</code></td><td>#241143</td><td>#FDFCFC</td><td>Headings</td></tr>
+      <tr><td><code>--color-text-body</code></td><td>#5F5273</td><td>#CFCCD1</td><td>Body text</td></tr>
+      <tr><td><code>--color-text-on-dark</code></td><td>#FDFCFC</td><td>#FDFCFC</td><td>Text on dark bg</td></tr>
+      <tr><td><code>--color-text-link</code></td><td>#5F5273</td><td>#CFCCD1</td><td>Links</td></tr>
+      <tr><td><code>--color-text-link-hover</code></td><td>#7054E2</td><td>#AEA7FF</td><td>Link hover</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Accents & Borders</h3>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--color-accent-primary</code></td><td>#5519D5</td><td>#7A59FC</td><td>Primary actions, CTAs</td></tr>
+      <tr><td><code>--color-accent-hover</code></td><td>#7A59FC</td><td>#9A83F7</td><td>Hover states</td></tr>
+      <tr><td><code>--color-accent-light</code></td><td>#AEA7FF</td><td>#AEA7FF</td><td>Lavender accents</td></tr>
+      <tr><td><code>--color-border-default</code></td><td>#2D203E</td><td>#2D203E</td><td>Dividers</td></tr>
+      <tr><td><code>--color-border-hover</code></td><td>#FFFFFF</td><td>#FFFFFF</td><td>Hover borders</td></tr>
+    </tbody>
+  </table>
+</DocsLayout>

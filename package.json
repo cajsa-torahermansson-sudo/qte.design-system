@@ -1,0 +1,28 @@
+{
+  "name": "@qte/design-system",
+  "version": "1.0.0",
+  "description": "QTE Development — Headless Design System. Tokens, CSS, and component styles.",
+  "author": "QTE Development <hello@qte.se>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qte-development/design-system"
+  },
+  "files": [
+    "css/",
+    "styles/",
+    "tokens/"
+  ],
+  "main": "css/tokens.css",
+  "exports": {
+    "./tokens": "./css/tokens.css",
+    "./tokens.css": "./css/tokens.css",
+    "./styles/*": "./styles/*",
+    "./components/*": "./styles/*"
+  },
+  "scripts": {
+    "dev": "cd docs && npm run dev",
+    "build:docs": "cd docs && npm run build",
+    "preview": "cd docs && npm run preview"
+  }
+}

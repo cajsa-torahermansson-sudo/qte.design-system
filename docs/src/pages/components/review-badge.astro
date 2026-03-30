@@ -1,0 +1,81 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Review Badge" activePage="Review Badge">
+  <style is:global>
+    @import '../../../../styles/review-badge.css';
+  </style>
+
+  <h1>Review Badge</h1>
+  <p>Pill-shaped badge for displaying ratings from review platforms. Shows stars, score, and source. Adapts to dark and light backgrounds — toggle to see both.</p>
+
+  <h2>Default</h2>
+  <Preview dark={true} code={`<div class="qte-badge">
+  <span class="qte-badge__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+  <span class="qte-badge__rating">4.9</span>
+  <span class="qte-badge__source">Google</span>
+</div>`} />
+
+  <h2>Multiple Badges</h2>
+  <Preview dark={true} code={`<div style="display: flex; gap: 12px; flex-wrap: wrap;">
+  <div class="qte-badge">
+    <span class="qte-badge__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span class="qte-badge__rating">4.9</span>
+    <span class="qte-badge__source">Google</span>
+  </div>
+  <div class="qte-badge">
+    <span class="qte-badge__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span class="qte-badge__rating">5.0</span>
+    <span class="qte-badge__source">Trustpilot</span>
+  </div>
+</div>`} />
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`@import '@qte/design-system/tokens.css';
+@import '@qte/design-system/styles/review-badge.css';
+
+<!-- On dark background (hero sections) -->
+<section data-theme="dark">
+  <div class="qte-badge">
+    <span class="qte-badge__stars">★★★★★</span>
+    <span class="qte-badge__rating">4.9</span>
+    <span class="qte-badge__source">Google</span>
+  </div>
+</section>
+
+<!-- On light background -->
+<section data-theme="light">
+  <div class="qte-badge">
+    <span class="qte-badge__stars">★★★★★</span>
+    <span class="qte-badge__rating">4.9</span>
+    <span class="qte-badge__source">Google</span>
+  </div>
+</section>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Dark bg</th><th>Light bg</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-badge</code></td><td>White border (40% opacity)</td><td>Purple border (20% opacity), light purple tint</td></tr>
+      <tr><td><code>.qte-badge__stars</code></td><td>Gold (#FFD700)</td><td>Same</td></tr>
+      <tr><td><code>.qte-badge__rating</code></td><td>White text, bold</td><td>Dark heading text, bold</td></tr>
+      <tr><td><code>.qte-badge__source</code></td><td>White text (80% opacity)</td><td>Body text color</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Anatomy</h2>
+  <table class="props-table">
+    <thead><tr><th>Property</th><th>Value</th><th>Token</th></tr></thead>
+    <tbody>
+      <tr><td>Padding</td><td>10px 18px</td><td>—</td></tr>
+      <tr><td>Border radius</td><td>100px</td><td><code>--radius-full</code></td></tr>
+      <tr><td>Gap</td><td>8px</td><td><code>--spacing-sm</code></td></tr>
+      <tr><td>Font size</td><td>14px</td><td>—</td></tr>
+    </tbody>
+  </table>
+</DocsLayout>

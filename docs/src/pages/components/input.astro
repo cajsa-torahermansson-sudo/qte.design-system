@@ -1,0 +1,90 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Input" activePage="Input">
+  <style is:global>
+    @import '../../../../styles/input.css';
+  </style>
+
+  <h1>Input</h1>
+  <p>Form elements including text inputs, textareas, and checkboxes. Minimal styling with focus states using the accent color.</p>
+
+  <h2>Text Input</h2>
+  <p>Single-line text input for forms.</p>
+  <Preview code={`<input class="qte-input" type="text" placeholder="Ditt namn" />`} />
+
+  <h3>Disabled</h3>
+  <Preview code={`<input class="qte-input" type="text" placeholder="Ej tillgänglig" disabled />`} />
+
+  <h2>Textarea</h2>
+  <p>Multi-line text area with vertical resize. Minimum height 153px.</p>
+  <Preview code={`<textarea class="qte-textarea" placeholder="Beskriv ditt projekt..."></textarea>`} />
+
+  <h2>Checkbox</h2>
+  <p>Custom-styled checkbox with check icon on selection. Uses a label wrapper for click target.</p>
+  <Preview code={`<label class="qte-checkbox">
+  <input type="checkbox" />
+  <span>Jag godkänner villkoren</span>
+</label>`} />
+
+  <h3>Checked State</h3>
+  <Preview code={`<label class="qte-checkbox">
+  <input type="checkbox" checked />
+  <span>Prenumerera på nyhetsbrevet</span>
+</label>`} />
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- Import -->
+@import '@qte/design-system/styles/input.css';
+
+<!-- Text Input -->
+<input class="qte-input" type="text" placeholder="Label" />
+<input class="qte-input" type="email" placeholder="E-post" />
+
+<!-- Textarea -->
+<textarea class="qte-textarea" placeholder="Meddelande"></textarea>
+
+<!-- Checkbox -->
+<label class="qte-checkbox">
+  <input type="checkbox" />
+  <span>Label</span>
+</label>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-input</code></td><td>Single-line text input</td></tr>
+      <tr><td><code>.qte-textarea</code></td><td>Multi-line text area (min-height 153px)</td></tr>
+      <tr><td><code>.qte-checkbox</code></td><td>Label wrapper for custom checkbox</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Anatomy</h2>
+  <table class="props-table">
+    <thead><tr><th>Property</th><th>Value</th><th>Token</th></tr></thead>
+    <tbody>
+      <tr><td>Padding</td><td>10px 18px</td><td>—</td></tr>
+      <tr><td>Border radius</td><td>2px</td><td><code>--radius-sm</code></td></tr>
+      <tr><td>Font</td><td>Source Sans 3 Regular, 16px</td><td><code>--font-weight-regular</code>, <code>--font-size-sm</code></td></tr>
+      <tr><td>Border</td><td>1px solid transparent</td><td>—</td></tr>
+      <tr><td>Focus border</td><td>accent-primary + box-shadow</td><td><code>--color-accent-primary</code></td></tr>
+      <tr><td>Disabled</td><td>opacity 0.5, secondary bg</td><td><code>:disabled</code></td></tr>
+      <tr><td>Checkbox size</td><td>20px x 20px</td><td>—</td></tr>
+      <tr><td>Checkbox checked</td><td>accent-primary fill + SVG check</td><td><code>--color-accent-primary</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Accessibility</h2>
+  <ul>
+    <li>Always pair inputs with a visible <code>&lt;label&gt;</code> or <code>aria-label</code></li>
+    <li>Checkbox uses <code>:focus-visible</code> for keyboard navigation ring</li>
+    <li>Disabled inputs have <code>cursor: not-allowed</code> and reduced opacity</li>
+    <li>Custom checkbox preserves native <code>&lt;input type="checkbox"&gt;</code> semantics</li>
+  </ul>
+</DocsLayout>

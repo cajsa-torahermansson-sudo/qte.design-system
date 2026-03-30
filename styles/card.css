@@ -1,0 +1,206 @@
+/* QTE Cards
+ * Variants: --case, --logo, --usp, --contact, --hover-effect, --staff
+ */
+
+/* ─── Base Card ─── */
+.qte-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition-default);
+}
+
+/* ─── Case Study Card ─── */
+.qte-card--case {
+  background-color: var(--color-bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.qte-card--case .qte-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.qte-card--case .qte-card__content {
+  padding: var(--spacing-lg);
+}
+
+.qte-card--case .qte-card__title {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-on-dark);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.qte-card--case .qte-card__desc {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ─── Client Logo Card ─── */
+.qte-card--logo {
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.qte-card--logo img {
+  max-width: 60%;
+  height: auto;
+}
+
+/* ─── USP/Feature Card ─── */
+.qte-card--usp {
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+}
+
+.qte-card--usp .qte-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-accent-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.qte-card--usp .qte-card__title {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-heading);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.qte-card--usp .qte-card__desc {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-body);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ─── Contact Card (dark) ─── */
+.qte-card--contact {
+  background-color: var(--color-bg-dark);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.qte-card--contact .qte-card__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 auto var(--spacing-md);
+  object-fit: cover;
+}
+
+.qte-card--contact .qte-card__title {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-on-dark);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.qte-card--contact .qte-card__role {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-light);
+  margin: 0 0 var(--spacing-md);
+}
+
+.qte-card--contact a {
+  color: var(--color-accent-light);
+  text-decoration: none;
+}
+
+.qte-card--contact a:hover {
+  color: var(--color-white);
+}
+
+/* ─── Hover Effect Card ─── */
+.qte-card--hover-effect {
+  position: relative;
+  padding: 1px;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.09);
+  transition: var(--transition-default);
+}
+
+.qte-card--hover-effect:hover {
+  padding: 2px;
+  background: linear-gradient(192deg, #896CFC 8%, #5519D5 50%, #AEA7FF 99%);
+  box-shadow: 0 4px 24px rgba(85, 25, 213, 0.3);
+}
+
+.qte-card--hover-effect .qte-card__inner {
+  background-color: var(--color-bg-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.qte-card--hover-effect .qte-card__arrow {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: var(--color-accent-light);
+  font-weight: var(--font-weight-bold);
+}
+
+.qte-card--hover-effect:hover .qte-card__arrow {
+  opacity: 1;
+}
+
+.qte-card--hover-effect:focus-within {
+  padding: 2px;
+  background: linear-gradient(192deg, #896CFC 8%, #5519D5 50%, #AEA7FF 99%);
+  box-shadow: 0 4px 24px rgba(85, 25, 213, 0.3);
+}
+
+.qte-card--hover-effect:focus-within .qte-card__arrow {
+  opacity: 1;
+}
+
+/* ─── Staff Grid Card ─── */
+.qte-card--staff .qte-card__image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  background: linear-gradient(210deg, #F3E8E8 0%, #FFFFFF 50%, #F3E8E8 70%);
+  object-fit: cover;
+  margin-bottom: var(--spacing-sm);
+}
+
+.qte-card--staff .qte-card__title {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  color: var(--color-text-heading);
+  margin: 0;
+}
+
+.qte-card--staff .qte-card__role {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-primary);
+  margin: 0;
+}
+
+.qte-card--staff .qte-card__contact {
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  color: var(--color-text-body);
+  margin: 0;
+}

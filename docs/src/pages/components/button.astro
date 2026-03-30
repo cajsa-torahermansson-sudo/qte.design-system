@@ -1,0 +1,113 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Button" activePage="Button">
+  <style is:global>
+    @import '../../../../styles/button.css';
+  </style>
+
+  <h1>Button</h1>
+  <p>Pill-shaped buttons for primary actions, secondary actions, ghost links, and dark variants. All use <code>border-radius: 100px</code>. Toggle dark/light on each preview to see how variants adapt.</p>
+
+  <h2>Primary</h2>
+  <p>Main CTAs. Purple fill, white text. Works on both backgrounds.</p>
+  <Preview dark={true} code={`<button class="qte-btn qte-btn--primary">Boka möte</button>
+<button class="qte-btn qte-btn--primary" disabled>Disabled</button>`} />
+
+  <h2>Secondary (Glass)</h2>
+  <p>On dark: semi-transparent white glass with subtle border. On light: purple-tinted glass with purple border. Toggle to see both.</p>
+  <Preview dark={true} code={`<button class="qte-btn qte-btn--secondary">Läs mer</button>
+<button class="qte-btn qte-btn--secondary" disabled>Disabled</button>`} />
+
+  <h2>Ghost</h2>
+  <p>Text-only, no background. On dark: white text. On light: dark heading text. Hover turns purple in both modes. Toggle to compare.</p>
+  <Preview dark={true} code={`<button class="qte-btn qte-btn--ghost">Visa alla →</button>
+<button class="qte-btn qte-btn--ghost" disabled>Disabled</button>`} />
+
+  <h2>Dark</h2>
+  <p>On light: dark fill with cream text. On dark: inverts to white fill with dark text. Hover turns purple in both modes.</p>
+  <Preview code={`<button class="qte-btn qte-btn--dark">Skicka meddelande</button>
+<button class="qte-btn qte-btn--dark" disabled>Disabled</button>`} />
+
+  <h2>Outline</h2>
+  <p>On light: dark border and text. On dark: white border and text. Fills purple on hover in both modes.</p>
+  <Preview code={`<button class="qte-btn qte-btn--outline">Boka möte</button>
+<button class="qte-btn qte-btn--outline" disabled>Disabled</button>`} />
+
+  <h2>All Variants</h2>
+  <p>All five variants together. Toggle to see the full dark/light adaptation.</p>
+  <Preview dark={true} code={`<button class="qte-btn qte-btn--primary">Primary</button>
+<button class="qte-btn qte-btn--secondary">Secondary</button>
+<button class="qte-btn qte-btn--ghost">Ghost</button>
+<button class="qte-btn qte-btn--dark">Dark</button>
+<button class="qte-btn qte-btn--outline">Outline</button>`} />
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`@import '@qte/design-system/tokens.css';
+@import '@qte/design-system/styles/button.css';
+
+<!-- All variants respond to data-theme on a parent element -->
+<section data-theme="dark">
+  <button class="qte-btn qte-btn--primary">Primary</button>
+  <button class="qte-btn qte-btn--secondary">Glass</button>
+  <button class="qte-btn qte-btn--ghost">Ghost →</button>
+</section>
+
+<section data-theme="light">
+  <button class="qte-btn qte-btn--primary">Primary</button>
+  <button class="qte-btn qte-btn--dark">Submit</button>
+  <button class="qte-btn qte-btn--outline">Book Meeting</button>
+  <button class="qte-btn qte-btn--ghost">Show All →</button>
+</section>
+
+<!-- As links -->
+<a href="/contact" class="qte-btn qte-btn--primary">Kontakta oss</a>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Dark bg</th><th>Light bg</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-btn--primary</code></td><td>Purple fill, white text</td><td>Same</td></tr>
+      <tr><td><code>.qte-btn--secondary</code></td><td>Glass (white 5%), white text, white border</td><td>Glass (purple 6%), dark text, purple border</td></tr>
+      <tr><td><code>.qte-btn--ghost</code></td><td>Transparent, white text</td><td>Transparent, dark text</td></tr>
+      <tr><td><code>.qte-btn--dark</code></td><td>White fill, dark text (inverted)</td><td>Dark fill (#170E23), cream text</td></tr>
+      <tr><td><code>.qte-btn--outline</code></td><td>Transparent, white border</td><td>Transparent, dark border</td></tr>
+    </tbody>
+  </table>
+
+  <h2>States</h2>
+  <table class="props-table">
+    <thead><tr><th>State</th><th>CSS</th><th>Behavior</th></tr></thead>
+    <tbody>
+      <tr><td>Default</td><td>Base styles</td><td>Resting appearance</td></tr>
+      <tr><td>Hover</td><td><code>:hover</code></td><td>Primary/Dark → purple, Secondary → brighter border, Ghost → purple text, Outline → fills purple</td></tr>
+      <tr><td>Focus</td><td><code>:focus-visible</code></td><td>3px purple outline, 2px offset</td></tr>
+      <tr><td>Disabled</td><td><code>:disabled</code></td><td>opacity 0.35, pointer-events none</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Anatomy</h2>
+  <table class="props-table">
+    <thead><tr><th>Property</th><th>Value</th><th>Token</th></tr></thead>
+    <tbody>
+      <tr><td>Padding</td><td>12px 34px</td><td>—</td></tr>
+      <tr><td>Border radius</td><td>100px</td><td><code>--radius-full</code></td></tr>
+      <tr><td>Font</td><td>Source Sans 3 Bold, 16px</td><td><code>--font-weight-bold</code>, <code>--font-size-sm</code></td></tr>
+      <tr><td>Transition</td><td>all 0.2s ease-in-out</td><td><code>--transition-default</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Accessibility</h2>
+  <ul>
+    <li>Use <code>&lt;button&gt;</code> for actions and <code>&lt;a&gt;</code> for navigation</li>
+    <li>Focus ring appears on keyboard navigation only (<code>:focus-visible</code>)</li>
+    <li>Disabled buttons have <code>pointer-events: none</code></li>
+    <li>Primary on dark: 8.25:1 contrast (passes WCAG AAA)</li>
+    <li>Dark on light: 14.64:1 contrast (passes WCAG AAA)</li>
+  </ul>
+</DocsLayout>

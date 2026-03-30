@@ -1,0 +1,91 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import Preview from '../../components/Preview.astro';
+---
+
+<DocsLayout title="Footer" activePage="Footer">
+  <style is:global>
+    @import '../../../../styles/footer.css';
+  </style>
+
+  <h1>Footer</h1>
+  <p>Dark site footer with multi-column link layout, divider, and legal row. Stacks to single column on mobile.</p>
+
+  <h2>Default</h2>
+  <Preview dark={true} fullWidth={true} code={`<footer class="qte-footer">
+  <div class="qte-footer__columns">
+    <div>
+      <h4 class="qte-footer__col-title">Tjänster</h4>
+      <a href="#" class="qte-footer__col-link">Webbutveckling</a>
+      <a href="#" class="qte-footer__col-link">UX Design</a>
+      <a href="#" class="qte-footer__col-link">E-handel</a>
+    </div>
+    <div>
+      <h4 class="qte-footer__col-title">Företaget</h4>
+      <a href="#" class="qte-footer__col-link">Om oss</a>
+      <a href="#" class="qte-footer__col-link">Case</a>
+      <a href="#" class="qte-footer__col-link">Karriär</a>
+    </div>
+    <div>
+      <h4 class="qte-footer__col-title">Kontakt</h4>
+      <a href="#" class="qte-footer__col-link">hej@qte.se</a>
+      <a href="#" class="qte-footer__col-link">08-123 456 78</a>
+      <a href="#" class="qte-footer__col-link">Stockholm</a>
+    </div>
+  </div>
+  <div class="qte-footer__divider"></div>
+  <div class="qte-footer__legal">
+    <span>&copy; 2026 QTE. Alla rättigheter förbehållna.</span>
+    <span>Integritetspolicy</span>
+  </div>
+</footer>`} />
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- Import -->
+@import '@qte/design-system/styles/footer.css';
+
+<!-- Footer -->
+<footer class="qte-footer">
+  <div class="qte-footer__columns">
+    <div>
+      <h4 class="qte-footer__col-title">Section</h4>
+      <a href="..." class="qte-footer__col-link">Link</a>
+    </div>
+    <!-- More columns... -->
+  </div>
+  <div class="qte-footer__divider"></div>
+  <div class="qte-footer__legal">
+    <span>&copy; 2026 Company</span>
+    <span>Privacy Policy</span>
+  </div>
+</footer>`}</code>
+  </div>
+
+  <h2>CSS Classes</h2>
+  <table class="props-table">
+    <thead><tr><th>Class</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>.qte-footer</code></td><td>Dark background container, generous padding</td></tr>
+      <tr><td><code>.qte-footer__columns</code></td><td>Flex row of link groups (80px gap)</td></tr>
+      <tr><td><code>.qte-footer__col-title</code></td><td>Bold white column heading</td></tr>
+      <tr><td><code>.qte-footer__col-link</code></td><td>Lavender link, turns white on hover</td></tr>
+      <tr><td><code>.qte-footer__divider</code></td><td>1px horizontal rule (10% white opacity)</td></tr>
+      <tr><td><code>.qte-footer__legal</code></td><td>Space-between row for copyright and policy</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Anatomy</h2>
+  <table class="props-table">
+    <thead><tr><th>Property</th><th>Value</th><th>Token</th></tr></thead>
+    <tbody>
+      <tr><td>Background</td><td>#170E23</td><td><code>--color-bg-dark</code></td></tr>
+      <tr><td>Padding</td><td>80px 70px 40px</td><td><code>--spacing-4xl</code>, <code>--spacing-2xl</code></td></tr>
+      <tr><td>Column gap</td><td>80px</td><td>—</td></tr>
+      <tr><td>Link font size</td><td>14px</td><td>—</td></tr>
+      <tr><td>Link color</td><td>#AEA7FF</td><td><code>--color-accent-light</code></td></tr>
+      <tr><td>Legal font size</td><td>13px</td><td>—</td></tr>
+    </tbody>
+  </table>
+</DocsLayout>

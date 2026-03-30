@@ -1,0 +1,112 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Typography" activePage="Typography">
+  <h1>Typography</h1>
+  <p>QTE uses <strong>Source Sans 3</strong> as its single typeface for all headings, body text, and UI elements. Two weights (Regular 400 and Bold 700) cover every use case.</p>
+
+  <h2>Font Family</h2>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td><code>--font-family-sans</code></td><td>'Source Sans 3', sans-serif</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Weight Scale</h2>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--font-weight-regular</code></td><td>400</td><td>Body text, labels, placeholders</td></tr>
+      <tr><td><code>--font-weight-bold</code></td><td>700</td><td>Headings, buttons, emphasis</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Size Scale</h2>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      {[
+        { token: '--font-size-mini', value: '12px', usage: 'Badges, fine print' },
+        { token: '--font-size-sm', value: '16px', usage: 'Buttons, form fields, captions' },
+        { token: '--font-size-base', value: '18px', usage: 'Body text, ticker items' },
+        { token: '--font-size-lg', value: '22px', usage: 'Card titles, subtitles' },
+        { token: '--font-size-h6', value: '20px', usage: 'H6' },
+        { token: '--font-size-h5', value: '26px', usage: 'H5' },
+        { token: '--font-size-h4', value: '30px', usage: 'H4' },
+        { token: '--font-size-h3', value: '40px', usage: 'H3, section headings' },
+        { token: '--font-size-h2', value: '66px', usage: 'H2, hero sub-headings' },
+        { token: '--font-size-h1', value: '100px', usage: 'H1, hero headings' },
+      ].map(s => (
+        <tr>
+          <td><code>{s.token}</code></td>
+          <td>{s.value}</td>
+          <td>{s.usage}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Line Heights</h2>
+  <table class="props-table">
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>--line-height-tight</code></td><td>1.17</td><td>H1, H2 — large display headings</td></tr>
+      <tr><td><code>--line-height-snug</code></td><td>1.27</td><td>H3, H4 — section headings</td></tr>
+      <tr><td><code>--line-height-normal</code></td><td>1.4</td><td>Default body text</td></tr>
+      <tr><td><code>--line-height-relaxed</code></td><td>1.65</td><td>Long-form content, descriptions</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Text Style Examples</h2>
+  <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 16px;">
+    <div>
+      <span style="font-size: 12px; color: var(--color-text-body); text-transform: uppercase; letter-spacing: 0.1em;">H1 — 100px / Bold / Tight</span>
+      <p style="font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.17; margin: 4px 0 0;">Digitala upplevelser</p>
+    </div>
+    <div>
+      <span style="font-size: 12px; color: var(--color-text-body); text-transform: uppercase; letter-spacing: 0.1em;">H2 — 66px / Bold / Tight</span>
+      <p style="font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.17; margin: 4px 0 0;">Vi skapar digitalt</p>
+    </div>
+    <div>
+      <span style="font-size: 12px; color: var(--color-text-body); text-transform: uppercase; letter-spacing: 0.1em;">H3 — 40px / Bold / Snug</span>
+      <p style="font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.27; margin: 4px 0 0;">Våra tjänster</p>
+    </div>
+    <div>
+      <span style="font-size: 12px; color: var(--color-text-body); text-transform: uppercase; letter-spacing: 0.1em;">H4 — 30px / Bold / Snug</span>
+      <p style="font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.27; margin: 4px 0 0;">Strategi & design</p>
+    </div>
+    <div>
+      <span style="font-size: 12px; color: var(--color-text-body); text-transform: uppercase; letter-spacing: 0.1em;">Body — 18px / Regular / Normal</span>
+      <p style="font-family: 'Source Sans 3', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.4; margin: 4px 0 0;">Vi hjälper företag att bygga starka varumärken och digitala produkter som gör skillnad.</p>
+    </div>
+    <div>
+      <span style="font-size: 12px; color: var(--color-text-body); text-transform: uppercase; letter-spacing: 0.1em;">Small — 16px / Regular / Relaxed</span>
+      <p style="font-family: 'Source Sans 3', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.65; margin: 4px 0 0;">Captions, form labels, and secondary text use the smaller size with generous line height for readability.</p>
+    </div>
+  </div>
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`/* Import tokens */
+@import '@qte/design-system/css/tokens.css';
+
+/* Heading */
+.heading {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-snug);
+}
+
+/* Body */
+.body {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}`}</code>
+  </div>
+</DocsLayout>

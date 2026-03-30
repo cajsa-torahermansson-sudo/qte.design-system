@@ -1,0 +1,121 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Installation" activePage="Installation">
+  <h1>Installation</h1>
+  <p>Get started with QTE Design System in any project.</p>
+
+  <h2>npm</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>npm install @qte/design-system</code>
+  </div>
+
+  <h2>CDN</h2>
+  <p>Use directly from a CDN without installing:</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<link rel="stylesheet" href="https://unpkg.com/@qte/design-system/css/tokens.css" />
+<link rel="stylesheet" href="https://unpkg.com/@qte/design-system/styles/button.css" />`}</code>
+  </div>
+
+  <h2>Import Tokens Only</h2>
+  <p>If you only need design tokens (colors, spacing, etc.):</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`/* CSS */
+@import '@qte/design-system/tokens.css';
+
+/* Then use tokens in your own styles */
+.my-header {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+  padding: var(--spacing-lg);
+}`}</code>
+  </div>
+
+  <h2>Import Component Styles</h2>
+  <p>Import individual component CSS files as needed:</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`@import '@qte/design-system/tokens.css';      /* Required */
+@import '@qte/design-system/styles/button.css';
+@import '@qte/design-system/styles/card.css';
+@import '@qte/design-system/styles/input.css';`}</code>
+  </div>
+
+  <h2>Dark Mode</h2>
+  <p>Add <code>data-theme="dark"</code> or class <code>.dark</code> to any parent element:</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- Entire page in dark mode -->
+<html data-theme="dark">
+
+<!-- Section in dark mode -->
+<section class="dark">
+  <h2>This section uses dark mode tokens</h2>
+</section>
+
+<!-- Toggle with JavaScript -->
+<script>
+  document.documentElement.setAttribute('data-theme',
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  );
+</script>`}</code>
+  </div>
+
+  <h2>Framework Examples</h2>
+
+  <h3>React / Next.js</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`// globals.css or layout.tsx
+import '@qte/design-system/css/tokens.css';
+import '@qte/design-system/styles/button.css';
+
+// Component
+export function ContactButton() {
+  return <button className="qte-btn qte-btn--primary">Boka möte</button>
+}`}</code>
+  </div>
+
+  <h3>Vue / Nuxt</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- nuxt.config or main.css -->
+@import '@qte/design-system/css/tokens.css';
+@import '@qte/design-system/styles/button.css';
+
+<!-- Component -->
+<template>
+  <button class="qte-btn qte-btn--primary">Boka möte</button>
+</template>`}</code>
+  </div>
+
+  <h3>Svelte</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- +layout.svelte or app.css -->
+@import '@qte/design-system/css/tokens.css';
+@import '@qte/design-system/styles/button.css';
+
+<!-- Component -->
+<button class="qte-btn qte-btn--primary">Boka möte</button>`}</code>
+  </div>
+
+  <h3>Plain HTML</h3>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <link rel="stylesheet" href="path/to/tokens.css" />
+  <link rel="stylesheet" href="path/to/styles/button.css" />
+</head>
+<body>
+  <button class="qte-btn qte-btn--primary">Boka möte</button>
+</body>
+</html>`}</code>
+  </div>
+</DocsLayout>

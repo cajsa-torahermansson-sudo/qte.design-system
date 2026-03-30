@@ -1,0 +1,72 @@
+/* QTE Footer
+ * Usage: <footer class="qte-footer"> ... </footer>
+ */
+
+.qte-footer {
+  background-color: var(--color-bg-dark);
+  padding: 80px var(--spacing-4xl) var(--spacing-2xl);
+}
+
+@media (max-width: 767px) {
+  .qte-footer {
+    padding: var(--spacing-3xl) var(--spacing-md) 30px;
+  }
+}
+
+.qte-footer__columns {
+  display: flex;
+  gap: 80px;
+  margin-bottom: var(--spacing-2xl);
+}
+
+@media (max-width: 767px) {
+  .qte-footer__columns {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+}
+
+.qte-footer__col-title {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-on-dark);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.qte-footer__col-link {
+  display: block;
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  color: var(--color-accent-light);
+  text-decoration: none;
+  padding: 2px 0;
+  transition: color 0.2s ease;
+}
+
+.qte-footer__col-link:hover {
+  color: var(--color-white);
+}
+
+.qte-footer__divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: var(--spacing-lg);
+}
+
+.qte-footer__legal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-family-sans);
+  font-size: 13px;
+  color: var(--color-gray-300);
+}
+
+@media (max-width: 767px) {
+  .qte-footer__legal {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+}

@@ -1,0 +1,145 @@
+/* QTE Ticker
+ * Usage: <div class="qte-ticker qte-ticker--dark"><div class="qte-ticker__track">...</div></div>
+ * Variants: --dark, --light, --accent
+ */
+
+.qte-ticker {
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.qte-ticker__track {
+  display: flex;
+  white-space: nowrap;
+  animation: qte-ticker-scroll 30s linear infinite;
+}
+
+.qte-ticker__track:hover {
+  animation-play-state: paused;
+}
+
+.qte-ticker__item {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  letter-spacing: 0.05em;
+  padding: 0 var(--spacing-lg);
+}
+
+.qte-ticker__separator {
+  padding: 0 var(--spacing-sm);
+  opacity: 0.5;
+}
+
+/* ─── Variants ─── */
+.qte-ticker--dark {
+  background-color: var(--color-bg-dark);
+}
+
+.qte-ticker--dark .qte-ticker__item {
+  color: var(--color-accent-light);
+}
+
+.qte-ticker--light {
+  background-color: var(--color-bg-primary);
+}
+
+.qte-ticker--light .qte-ticker__item {
+  color: var(--color-accent-primary);
+}
+
+.qte-ticker--accent {
+  background-color: var(--color-accent-primary);
+}
+
+.qte-ticker--accent .qte-ticker__item {
+  color: var(--color-white);
+}
+
+/* ─── Image Ticker (Case Studies) ─── */
+.qte-ticker--images {
+  height: auto;
+  padding: var(--spacing-md) 0;
+  background-color: var(--color-bg-dark);
+}
+
+.qte-ticker--images .qte-ticker__track {
+  gap: var(--spacing-lg);
+  animation-duration: 40s;
+}
+
+.qte-ticker__card {
+  position: relative;
+  width: 307px;
+  height: 307px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 767px) {
+  .qte-ticker__card {
+    width: 230px;
+    height: 230px;
+  }
+}
+
+.qte-ticker__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qte-ticker__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.qte-ticker__card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-md) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qte-ticker__card-title {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  color: var(--color-text-on-dark);
+  margin: 0;
+}
+
+.qte-ticker__card-badges {
+  display: flex;
+  gap: 6px;
+}
+
+.qte-ticker__badge {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-mini);
+  color: var(--color-text-on-dark);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qte-ticker__track {
+    animation: none;
+  }
+}
+
+@keyframes qte-ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
