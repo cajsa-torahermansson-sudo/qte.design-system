@@ -5,7 +5,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
   integrations: [mdx()],
-  site: 'https://qte-development.github.io',
-  base: isProd ? '/design-system' : '/',
+  site: 'https://cajsa-torahermansson-sudo.github.io',
+  base: isProd ? '/qte.design-system/' : '/',
   trailingSlash: 'always',
 });
