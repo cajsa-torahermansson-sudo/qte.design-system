@@ -1,0 +1,175 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Icons" activePage="Icons">
+  <style is:global>
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: var(--spacing-md);
+      margin: var(--spacing-md) 0 var(--spacing-xl);
+    }
+    .icon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-lg);
+      background-color: var(--color-bg-primary);
+      transition: var(--transition-default);
+    }
+    .icon-card:hover {
+      background-color: var(--color-bg-secondary);
+    }
+    .icon-card svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-text-heading);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .icon-card--filled svg {
+      fill: var(--color-text-heading);
+      stroke: none;
+    }
+    .icon-card__label {
+      font-size: 11px;
+      color: var(--color-text-body);
+      text-align: center;
+    }
+  </style>
+
+  <h1>Icons</h1>
+  <p>Core icon set for the QTE Design System. All icons are 24×24px, stroke-based (2px weight, round caps). Use as inline SVGs or import from the Figma library via INSTANCE_SWAP.</p>
+
+  <h2>Navigation</h2>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+      <span class="icon-card__label">Chevron Right</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+      <span class="icon-card__label">Chevron Left</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      <span class="icon-card__label">Chevron Down</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+      <span class="icon-card__label">Arrow Right</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M10 7l-5 5 5 5"/></svg>
+      <span class="icon-card__label">Arrow Left</span>
+    </div>
+  </div>
+
+  <h2>Actions</h2>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <span class="icon-card__label">Close</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <span class="icon-card__label">Menu</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="M16 16l5 5"/></svg>
+      <span class="icon-card__label">Search</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+      <span class="icon-card__label">External Link</span>
+    </div>
+  </div>
+
+  <h2>Communication</h2>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg>
+      <span class="icon-card__label">Mail</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11.65 11.65 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+      <span class="icon-card__label">Phone</span>
+    </div>
+  </div>
+
+  <h2>Media</h2>
+  <div class="icon-grid">
+    <div class="icon-card icon-card--filled">
+      <svg viewBox="0 0 24 24"><path d="M8 5l12 7-12 7z"/></svg>
+      <span class="icon-card__label">Play</span>
+    </div>
+    <div class="icon-card icon-card--filled">
+      <svg viewBox="0 0 24 24"><rect x="7" y="4" width="3" height="16"/><rect x="14" y="4" width="3" height="16"/></svg>
+      <span class="icon-card__label">Pause</span>
+    </div>
+  </div>
+
+  <h2>Status</h2>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
+      <span class="icon-card__label">Check</span>
+    </div>
+    <div class="icon-card icon-card--filled">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+      <span class="icon-card__label">Star</span>
+    </div>
+  </div>
+
+  <h2>Utility</h2>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span class="icon-card__label">Calendar</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <span class="icon-card__label">Location</span>
+    </div>
+    <div class="icon-card">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c2.5 2.73 4 6.24 4 10s-1.5 7.27-4 10M12 2c-2.5 2.73-4 6.24-4 10s1.5 7.27 4 10"/></svg>
+      <span class="icon-card__label">Globe</span>
+    </div>
+  </div>
+
+  <h2>Usage</h2>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`<!-- Inline SVG (recommended) -->
+<svg width="24" height="24" viewBox="0 0 24 24"
+  fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 6l6 6-6 6"/>
+</svg>
+
+<!-- Icons inherit color from parent via currentColor -->
+<a href="/next" style="color: var(--color-accent-primary)">
+  Next <svg ...><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+</a>
+
+<!-- In Figma: use INSTANCE_SWAP on any Icon/ component -->`}</code>
+  </div>
+
+  <h2>Specs</h2>
+  <table class="props-table">
+    <thead><tr><th>Property</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Size</td><td>24 × 24px</td></tr>
+      <tr><td>Stroke width</td><td>2px</td></tr>
+      <tr><td>Stroke cap</td><td>Round</td></tr>
+      <tr><td>Stroke join</td><td>Round</td></tr>
+      <tr><td>Color</td><td>currentColor (inherits from parent)</td></tr>
+      <tr><td>Filled icons</td><td>Play, Pause, Star — use fill instead of stroke</td></tr>
+    </tbody>
+  </table>
+</DocsLayout>
