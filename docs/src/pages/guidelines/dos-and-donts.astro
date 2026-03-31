@@ -1,0 +1,318 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Do's & Don'ts" activePage="Do's & Don'ts">
+  <style is:global>
+    .dodont-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-lg);
+      margin: var(--spacing-md) 0 var(--spacing-xl);
+    }
+    .dodont-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .dodont-preview {
+      padding: var(--spacing-xl) var(--spacing-lg);
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-bg-primary);
+      font-family: var(--font-family-sans);
+      text-align: center;
+      white-space: pre-line;
+    }
+    .dodont-preview--dark {
+      background-color: var(--color-bg-dark);
+    }
+    .dodont-bar {
+      padding: var(--spacing-md) var(--spacing-lg);
+      color: white;
+    }
+    .dodont-bar--do {
+      background-color: #24A361;
+    }
+    .dodont-bar--dont {
+      background-color: #D93333;
+    }
+    .dodont-bar__label {
+      font-weight: var(--font-weight-bold);
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .dodont-bar__text {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  </style>
+
+  <h1>Do's & Don'ts</h1>
+  <p>Visual guidelines showing correct and incorrect usage patterns. Follow these to maintain consistency across all QTE projects.</p>
+
+  <h2>Color Usage</h2>
+  <p>Always use semantic tokens. Never hardcode hex values in components.</p>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <button class="qte-btn qte-btn--primary" style="pointer-events:none">var(--color-accent-primary)</button>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use semantic tokens like var(--color-accent-primary). They adapt to Light/Dark mode automatically.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <button class="qte-btn qte-btn--primary" style="pointer-events:none">background: #5519D5</button>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't hardcode hex values like #5519D5 in components. They won't switch with theme changes.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #24A361; font-weight: 700; font-size: 18px;">✓ Formuläret har skickats</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use color AND an icon/label to convey meaning. Ensures colorblind users understand the message.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #24A361; font-size: 18px;">Formuläret har skickats</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't rely solely on color to communicate status. 8% of men have color vision deficiency.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Typography Usage</h2>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-heading); font-size: 18px; font-weight: 700;">Heading/H3 — 40px<br/>Body/Default — 18px</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use text styles from the type scale. Heading/H1–H6 for headings, Body/Large–Mini for content.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 18px;">font-size: 19px<br/>font-size: 23px</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't use arbitrary font sizes like 19px or 23px. Stick to the defined scale.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-body); font-size: 18px;">This body text is 18px<br/>and very comfortable to read.</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use sufficient font size for body text. Minimum 16px for comfortable reading.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-body); font-size: 11px;">This body text is 11px and very hard to read for many users, especially on mobile devices.</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't use body text smaller than 16px except for captions and labels (use Body/Mini at 12px).</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Spacing & Layout</h2>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-heading); font-size: 16px; font-weight: 700;">padding: var(--spacing-lg)<br/>gap: var(--spacing-md)</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use spacing tokens for all padding, margins, and gaps. This ensures consistency across all screens.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 16px;">padding: 27px<br/>gap: 13px</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't use arbitrary pixel values like 13px, 27px, or 35px. Always use the nearest token.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-heading); font-size: 20px; font-weight: 700;">44 × 44px<br/>minimum touch area</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Give interactive elements enough touch target area. Minimum 44×44px as per WCAG 2.5.5.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 14px;">24 × 24px<br/>too small to tap</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't create tiny tap targets. Small buttons and links frustrate mobile users and fail accessibility.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Component Usage</h2>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview dodont-preview--dark">
+        <span style="color: #FDFCFC; font-size: 18px; font-weight: 700;">Primary on dark ✓<br/>Dark on light ✓</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use the correct button variant for the background. Primary/Secondary/Ghost on dark, Dark/Outline on light.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 18px;">Ghost on light ✗<br/>White text disappears</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't use Ghost or Secondary buttons on light backgrounds. White text on white is invisible.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-heading); font-size: 15px;">&lt;button class="qte-btn"&gt;<br/>  Boka möte<br/>&lt;/button&gt;</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use semantic HTML elements. &lt;button&gt; for actions, &lt;a&gt; for navigation, &lt;input&gt; for forms.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 15px;">&lt;div onclick="book()"&gt;<br/>  Boka möte<br/>&lt;/div&gt;</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't use &lt;div&gt; with onClick for interactive elements. It breaks keyboard navigation and screen readers.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-heading); font-size: 16px; font-weight: 700;">Namn<br/><span style="font-weight: 400; color: var(--color-text-body);">[ Sara Andersson&nbsp;&nbsp;&nbsp;&nbsp;]</span></span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Always pair inputs with visible labels. Labels help all users understand what to enter.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 16px;">[ Skriv ditt namn...&nbsp;&nbsp;]</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't use placeholder text as the only label. It disappears on focus and isn't read by all screen readers.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Accessibility Patterns</h2>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-heading); font-size: 16px;">Button&nbsp;&nbsp;[ ━━━━━━━ ]<br/>Focus ring visible ✓</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Always show a visible focus ring on keyboard navigation. Use :focus-visible for a clean experience.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 16px;">Button&nbsp;&nbsp;[ ━━━━━━━ ]<br/>outline: none ✗</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Never remove outline styles with outline: none. Keyboard users lose track of where they are.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-heading); font-size: 16px;">H1&nbsp;&nbsp;Page Title<br/>&nbsp;&nbsp;H2&nbsp;&nbsp;Section<br/>&nbsp;&nbsp;&nbsp;&nbsp;H3&nbsp;&nbsp;Subsection</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Maintain logical heading hierarchy: H1 → H2 → H3. Never skip levels. Use one H1 per page.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 16px;">H1&nbsp;&nbsp;Page Title<br/>&nbsp;&nbsp;H3&nbsp;&nbsp;Section ← skipped H2<br/>&nbsp;&nbsp;H1&nbsp;&nbsp;Another ← two H1s</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't skip heading levels (H1 → H3) or use headings for styling. Screen readers use them for navigation.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-accent-primary); font-size: 16px;">Läs mer om våra case →<br/>Boka ett möte med Sara →</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Write descriptive link text that makes sense out of context. Screen readers often list all links on a page.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: #D93333; font-size: 16px;">Klicka här<br/>Läs mer</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't use generic link text. "Click here" tells screen reader users nothing about the destination.</div>
+      </div>
+    </div>
+  </div>
+</DocsLayout>
