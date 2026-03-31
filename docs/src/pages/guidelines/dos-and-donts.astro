@@ -4,6 +4,8 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
 <DocsLayout title="Do's & Don'ts" activePage="Do's & Don'ts">
   <style is:global>
+    @import '../../../../styles/button.css';
+
     .dodont-pair {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -138,6 +140,27 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
       <div class="dodont-bar dodont-bar--dont">
         <div class="dodont-bar__label">✗  DON'T</div>
         <div class="dodont-bar__text">Don't use body text smaller than 16px except for captions and labels (use Body/Mini at 12px).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dodont-pair">
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-body); font-size: 16px; text-align: left;">Left-aligned text creates a<br/>natural reading rhythm that<br/>guides the eye smoothly.</span>
+      </div>
+      <div class="dodont-bar dodont-bar--do">
+        <div class="dodont-bar__label">✓  DO</div>
+        <div class="dodont-bar__text">Use left-aligned text for body copy. It's easier to scan and more accessible.</div>
+      </div>
+    </div>
+    <div class="dodont-card">
+      <div class="dodont-preview">
+        <span style="color: var(--color-text-body); font-size: 16px; text-align: justify; display: block; max-width: 260px;">Justified   text   creates  uneven   gaps   between  words    that    are    hard    to    read.</span>
+      </div>
+      <div class="dodont-bar dodont-bar--dont">
+        <div class="dodont-bar__label">✗  DON'T</div>
+        <div class="dodont-bar__text">Don't justify body text. It creates uneven word spacing that reduces readability.</div>
       </div>
     </div>
   </div>
