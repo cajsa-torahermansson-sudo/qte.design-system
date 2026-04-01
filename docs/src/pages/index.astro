@@ -3,8 +3,34 @@ import DocsLayout from '../layouts/DocsLayout.astro';
 ---
 
 <DocsLayout title="Introduction" activePage="Introduction">
+  <style>
+    .version-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: var(--spacing-lg);
+      font-size: 14px;
+    }
+    .version-tag__badge {
+      background-color: var(--color-accent-primary);
+      color: white;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-weight: var(--font-weight-bold);
+      font-size: 13px;
+    }
+    .version-tag__date {
+      color: var(--color-text-body);
+    }
+  </style>
+
+  <div class="version-tag">
+    <span class="version-tag__badge">v1.0</span>
+    <span class="version-tag__date">Last updated: April 1, 2026</span>
+  </div>
+
   <h1>QTE Design System</h1>
-  <p>A headless, framework-agnostic design system built for <a href="https://qte.se">qte.se</a>. CSS custom properties and class-based component styles that work with any stack — React, Vue, Svelte, or plain HTML.</p>
+  <p>A headless, framework-agnostic design system built for <a href="https://qte.se">qte.se</a>. CSS custom properties and class-based component styles that work with any stack — React, Vue, Svelte, plain HTML, iOS (Swift), or Android (Kotlin).</p>
 
   <h2>Quick Start</h2>
   <h3>Install via npm</h3>
