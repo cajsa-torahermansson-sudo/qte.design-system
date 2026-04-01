@@ -86,4 +86,88 @@ import DocsLayout from '../layouts/DocsLayout.astro';
 │   └── footer.css
 └── docs/            ← This site`}</code>
   </div>
+
+  <h2>Work in Progress</h2>
+  <p>Components and features currently in development or planned for upcoming releases.</p>
+
+  <style>
+    .wip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--spacing-md);
+      margin: var(--spacing-md) 0 var(--spacing-xl);
+    }
+    .wip-card {
+      background-color: var(--color-bg-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      border: 1px solid var(--color-gray-200);
+    }
+    .wip-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: var(--font-weight-bold);
+      letter-spacing: 0.05em;
+      color: white;
+      margin-bottom: var(--spacing-sm);
+    }
+    .wip-badge--progress { background-color: var(--color-accent-primary); }
+    .wip-badge--planned { background-color: #24A361; }
+    .wip-badge--exploring { background-color: #D99A0A; }
+    .wip-card h4 {
+      font-size: var(--font-size-base);
+      color: var(--color-text-heading);
+      margin: 0 0 var(--spacing-xs);
+    }
+    .wip-card p {
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
+
+  <div class="wip-grid">
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--progress">IN PROGRESS</span>
+      <h4>Video Card</h4>
+      <p>Card with embedded video player, poster image, play/pause overlay, and gradient frame. For case study showcases and hero sections.</p>
+    </div>
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--progress">IN PROGRESS</span>
+      <h4>Motion & Animation</h4>
+      <p>Animation tokens: easing curves, durations, and keyframe definitions. CSS and native platform outputs for consistent motion.</p>
+    </div>
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--planned">PLANNED</span>
+      <h4>Accordion / FAQ</h4>
+      <p>Expandable content sections with smooth open/close animation. For FAQ pages and long-form content organization.</p>
+    </div>
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--planned">PLANNED</span>
+      <h4>Modal / Dialog</h4>
+      <p>Overlay dialog with backdrop blur, focus trapping, and escape-to-close. For confirmations and booking embeds.</p>
+    </div>
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--planned">PLANNED</span>
+      <h4>Toast / Notification</h4>
+      <p>Temporary feedback messages (success, error, info). Auto-dismiss with progress bar. Accessible via aria-live.</p>
+    </div>
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--planned">PLANNED</span>
+      <h4>Tabs</h4>
+      <p>Horizontal tab navigation for switching content panels. Keyboard navigable with arrow keys.</p>
+    </div>
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--exploring">EXPLORING</span>
+      <h4>Testimonial Card</h4>
+      <p>Quote card with author photo, name, company, and star rating. Light pink background for social proof sections.</p>
+    </div>
+    <div class="wip-card">
+      <span class="wip-badge wip-badge--exploring">EXPLORING</span>
+      <h4>Process / Timeline</h4>
+      <p>Numbered step component for project phases, delivery models, or how-it-works flows.</p>
+    </div>
+  </div>
 </DocsLayout>
