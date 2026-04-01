@@ -118,4 +118,87 @@ export function ContactButton() {
 </body>
 </html>`}</code>
   </div>
+  <h2>iOS (SwiftUI)</h2>
+  <p>Copy <code>tokens.swift</code> into your Xcode project. All colors, spacing, radius, and typography are available as static properties.</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`// Copy css/tokens.swift into your project
+
+import SwiftUI
+
+struct MyButton: View {
+    var body: some View {
+        Button("Boka möte") { }
+            .padding(.horizontal, QTESpacing.xl)
+            .padding(.vertical, QTESpacing.sm)
+            .background(Color.QTE.Light.accentPrimary)
+            .foregroundColor(Color.QTE.Light.textOnDark)
+            .clipShape(Capsule())
+            .font(.custom(QTETypography.fontFamily, size: QTETypography.Size.sm))
+            .fontWeight(.bold)
+    }
+}
+
+// Dark mode — use Color.QTE.Dark instead
+struct MyDarkButton: View {
+    var body: some View {
+        Button("Boka möte") { }
+            .background(Color.QTE.Dark.accentPrimary)
+            .foregroundColor(Color.QTE.Dark.textOnDark)
+    }
+}`}</code>
+  </div>
+
+  <h2>Android (Jetpack Compose)</h2>
+  <p>Copy <code>tokens.kt</code> into your project under your design system package. Tokens use Compose types (<code>dp</code>, <code>sp</code>, <code>Color</code>).</p>
+  <div class="code-block">
+    <button class="code-block__copy">Copy</button>
+    <code>{`// Copy css/tokens.kt into se/qte/designsystem/
+
+import se.qte.designsystem.*
+
+@Composable
+fun QTEButton(text: String, onClick: () -> Unit) {
+    Button(
+        onClick = onClick,
+        shape = RoundedCornerShape(QTERadius.full),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = QTEColor.Light.accentPrimary,
+            contentColor = QTEColor.Light.textOnDark
+        ),
+        contentPadding = PaddingValues(
+            horizontal = QTESpacing.xl,
+            vertical = QTESpacing.sm
+        )
+    ) {
+        Text(
+            text = text,
+            fontSize = QTETypography.Size.sm,
+            fontWeight = FontWeight(QTETypography.Weight.bold)
+        )
+    }
+}
+
+// Dark mode — use QTEColor.Dark
+@Composable
+fun QTEDarkButton(text: String, onClick: () -> Unit) {
+    Button(
+        onClick = onClick,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = QTEColor.Dark.accentPrimary
+        )
+    ) { Text(text) }
+}`}</code>
+  </div>
+
+  <h2>Platform Token Files</h2>
+  <table class="props-table">
+    <thead><tr><th>Platform</th><th>File</th><th>Format</th></tr></thead>
+    <tbody>
+      <tr><td>Web</td><td><code>css/tokens.css</code></td><td>CSS Custom Properties</td></tr>
+      <tr><td>iOS</td><td><code>css/tokens.swift</code></td><td>SwiftUI Color/CGFloat extensions</td></tr>
+      <tr><td>Android</td><td><code>css/tokens.kt</code></td><td>Jetpack Compose Color/dp/sp objects</td></tr>
+      <tr><td>Source</td><td><code>tokens/*.json</code></td><td>DTCG format (for custom transforms)</td></tr>
+    </tbody>
+  </table>
 </DocsLayout>

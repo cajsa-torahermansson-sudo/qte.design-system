@@ -1,7 +1,7 @@
 {
   "name": "@qte/design-system",
   "version": "1.0.0",
-  "description": "QTE Development — Headless Design System. Tokens, CSS, and component styles.",
+  "description": "QTE Development — Headless Design System. Tokens for Web (CSS), iOS (Swift), and Android (Kotlin).",
   "author": "QTE Development <hello@qte.se>",
   "license": "MIT",
   "repository": {
@@ -17,6 +17,8 @@
   "exports": {
     "./tokens": "./css/tokens.css",
     "./tokens.css": "./css/tokens.css",
+    "./tokens.swift": "./css/tokens.swift",
+    "./tokens.kt": "./css/tokens.kt",
     "./styles/*": "./styles/*",
     "./components/*": "./styles/*"
   },
