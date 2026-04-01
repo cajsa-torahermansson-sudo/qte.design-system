@@ -64,6 +64,19 @@ const nav = [
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Mobile Header -->
+  <header class="docs-mobile-header">
+    <a href={base} class="docs-mobile-header__logo">QTE Design System</a>
+    <button class="docs-mobile-header__toggle" aria-label="Toggle navigation" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Sidebar Overlay -->
+  <div class="docs-sidebar-overlay"></div>
+
   <div class="docs-layout">
     <aside class="docs-sidebar">
       <a href={base} class="docs-sidebar__logo">QTE Design System</a>
@@ -87,14 +100,46 @@ const nav = [
   </div>
 
   <script is:inline>
+    // Mobile sidebar toggle
+    (function() {
+      var toggle = document.querySelector('.docs-mobile-header__toggle');
+      var sidebar = document.querySelector('.docs-sidebar');
+      var overlay = document.querySelector('.docs-sidebar-overlay');
+      if (!toggle || !sidebar || !overlay) return;
+
+      function openMenu() {
+        sidebar.setAttribute('data-open', 'true');
+        overlay.setAttribute('data-open', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        sidebar.removeAttribute('data-open');
+        overlay.removeAttribute('data-open');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', function() {
+        var isOpen = sidebar.getAttribute('data-open') === 'true';
+        if (isOpen) closeMenu(); else openMenu();
+      });
+
+      overlay.addEventListener('click', closeMenu);
+
+      // Close on link click (mobile)
+      sidebar.querySelectorAll('.docs-sidebar__link').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+
     // Copy button functionality
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.code-block__copy');
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.code-block__copy');
       if (!btn) return;
-      const code = btn.closest('.code-block').querySelector('code');
-      navigator.clipboard.writeText(code.textContent).then(() => {
+      var code = btn.closest('.code-block').querySelector('code');
+      navigator.clipboard.writeText(code.textContent).then(function() {
         btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = 'Copy', 2000);
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
       });
     });
   </script>
